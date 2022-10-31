@@ -54,3 +54,15 @@ isort:
 .PHONY: exportreq
 exportreq:
 	poetry export -f requirements.txt --output requirements.txt
+
+.PHONY: makemessages
+makemessages:
+	cd task_manager/ ;\
+	poetry run django-admin makemessages -l ru_RU ;\
+	cd ..
+
+.PHONY: compilemessages
+compilemessages:
+	cd task_manager/ ;\
+	poetry run django-admin compilemessages ;\
+	cd ..
