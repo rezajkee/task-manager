@@ -144,3 +144,7 @@ AUTH_PASSWORD_VALIDATORS = [
         }
     },
 ]
+
+# Add Rails.app to csrf trusted urls
+
+CSRF_TRUSTED_ORIGINS = ['https://web-production-b525.up.railway.app']
