@@ -12,6 +12,9 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 
 from pathlib import Path
 import dj_database_url
+from dotenv import load_dotenv
+
+load_dotenv()  # take environment variables from .env
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -42,6 +45,7 @@ INSTALLED_APPS = [
     "bootstrap4",
     "task_manager",
     "task_manager.pages",
+    "task_manager.accounts",
 ]
 
 MIDDLEWARE = [
@@ -59,7 +63,9 @@ ROOT_URLCONF = "task_manager.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": [
+            BASE_DIR / 'task_manager' / 'templates',
+        ],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -78,13 +84,14 @@ WSGI_APPLICATION = "task_manager.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
-    }
-}
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.sqlite3",
+#         "NAME": BASE_DIR / "db.sqlite3",
+#     }
+# }
 
+DATABASES = {'default': dj_database_url.config(conn_max_age=600)}
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
@@ -126,3 +133,14 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+# Override password validators
+
+AUTH_PASSWORD_VALIDATORS = [
+    {
+        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        'OPTIONS': {
+            'min_length': 3,
+        }
+    },
+]

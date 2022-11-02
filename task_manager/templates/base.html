@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    {% load i18n %}
+<head>
+    <meta charset="UTF-8">
+    <title>{% trans "MainTitle" %} {% block title %} {% endblock %}</title>
+</head>
+<body>
+    {% load bootstrap4 %}
+
+    {% bootstrap_css %}
+    {% bootstrap_javascript jquery='full' %}
+
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
+        <a class="navbar-brand" href="{% url 'home' %}">{% trans "MainTitle" %}</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">{% trans "UsersTitle" %} <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">{% trans "LoginTitle" %}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'register' %}">{% trans "RegisterTitle" %}</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+      
+    {% block content %}
+
+    {% endblock %}
+
+    <footer>
+        <div class="container my-5 pt-4 border-top">
+            <a target="_blank" href="https://github.com/rezajkee">Anton Shefer</a>
+        </div>
+    </footer>
+</body>
+</html>
