@@ -21,12 +21,31 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="#">{% trans "UsersTitle" %} <span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">{% trans "LoginTitle" %}</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'register' %}">{% trans "RegisterTitle" %}</a>
-                </li>
+                {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">{% trans "StatusesTitle" %}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">{% trans "TagsTitle" %}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">{% trans "TasksTitle" %}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="javascript:{document.getElementById('logout').submit()}">{% trans "LogoutTitle" %}</a>
+                        <form action="{% url 'logout' %}" id="logout" method="post">
+                            {% csrf_token %}
+                            <input type="hidden">
+                        </form>
+                    </li>
+                {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'login' %}">{% trans "LoginTitle" %}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'register' %}">{% trans "RegisterTitle" %}</a>
+                    </li>
+                {% endif %}
             </ul>
         </div>
     </nav>

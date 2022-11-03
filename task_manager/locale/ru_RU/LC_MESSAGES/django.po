@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-02 18:33+0500\n"
+"POT-Creation-Date: 2022-11-03 13:11+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: accounts/forms.py:8
+#: accounts/forms.py:8 accounts/forms.py:29
 msgid "PasswordTitle"
 msgstr "Пароль"
 
@@ -37,13 +37,18 @@ msgstr "Для подтверждения введите, пожалуйста, 
 msgid "PasswordMismatch"
 msgstr "Введённые пароли не совпадают"
 
-#: templates/accounts/register.html:9 templates/pages/home.html:9
-msgid "MainPage"
-msgstr "Главная"
+#: accounts/forms.py:28
+msgid "UsernameTitle"
+msgstr "Имя пользователя"
 
-#: templates/accounts/register.html:14 templates/base.html:28
+#: templates/accounts/register.html:9 templates/accounts/register.html:14
+#: templates/base.html:46
 msgid "RegisterTitle"
 msgstr "Регистрация"
+
+#: templates/accounts/register.html:28
+msgid "RegisterButton"
+msgstr "Зарегистрировать"
 
 #: templates/base.html:6 templates/base.html:15
 msgid "MainTitle"
@@ -53,13 +58,35 @@ msgstr "Менеджер задач"
 msgid "UsersTitle"
 msgstr "Пользователи"
 
-#: templates/base.html:25
+#: templates/base.html:26
+msgid "StatusesTitle"
+msgstr "Статусы"
+
+#: templates/base.html:29
+msgid "TagsTitle"
+msgstr "Метки"
+
+#: templates/base.html:32
+msgid "TasksTitle"
+msgstr "Задачи"
+
+#: templates/base.html:35
+msgid "LogoutTitle"
+msgstr "Выход"
+
+#: templates/base.html:43 templates/pages/login.html:9
+#: templates/pages/login.html:14
 msgid "LoginTitle"
 msgstr "Вход"
+
+#: templates/pages/home.html:9
+msgid "MainPage"
+msgstr "Главная"
 
 #: templates/pages/home.html:14
 msgid "Example"
 msgstr "Пример"
 
-#~ msgid "SearchTitle"
-#~ msgstr "Поиск"
+#: templates/pages/login.html:25
+msgid "LoginButton"
+msgstr "Войти"

@@ -148,3 +148,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Add Rails.app to csrf trusted urls
 
 CSRF_TRUSTED_ORIGINS = ['https://web-production-b525.up.railway.app']
+
+
+# from django.urls import reverse_lazy
+
+# LOGIN_URL = reverse_lazy('login')
+# LOGOUT_URL = reverse_lazy('logout')

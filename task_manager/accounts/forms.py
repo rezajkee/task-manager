@@ -22,3 +22,10 @@ class UserRegistrationForm(PlaceholderMixin, forms.ModelForm):
             output = _('PasswordMismatch')
             raise forms.ValidationError(output)
         return cd['password2']
+
+
+class LoginForm(PlaceholderMixin, forms.Form):
+    label_1 = _('UsernameTitle')
+    label_2 = _('PasswordTitle')
+    username = forms.CharField(label=label_1)
+    password = forms.CharField(label=label_2, widget=forms.PasswordInput)

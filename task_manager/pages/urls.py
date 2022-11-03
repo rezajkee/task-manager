@@ -15,7 +15,10 @@ Including another URLconf
 """
 from django.urls import path
 from task_manager.pages import views
+from task_manager.accounts import views as acc_views
 
 urlpatterns = [
     path("", views.home, name="home"),
+    path("login/", acc_views.login_user, name="login"),
+    path("logout/", acc_views.logout_user, name="logout"),
 ]
