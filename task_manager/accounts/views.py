@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.models import User
 from .forms import UserRegistrationForm, LoginForm
 
 
@@ -44,3 +45,8 @@ def logout_user(request):
         logout(request)
     # ADD MESSAGE Вы разлогинены
     return redirect("home")
+
+
+def users(request):
+    all_users = User.objects.order_by('date_joined')
+    return render(request, 'accounts/users.html', {'all_users': all_users})

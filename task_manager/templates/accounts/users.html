@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    {% extends 'base.html' %}
+    {% load i18n %}
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    {% block title %} | {% trans "UsersTitle" %} {% endblock %}
+    {% block content %}
+
+    <div class="container wrapper flex-grow-1">
+
+        <h1 class="my-4">{% trans "UsersTitle" %}</h1>
+
+        <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>{% trans "IdTitle" %}</th>
+                <th>{% trans "UsernameTitle" %}</th>
+                <th>{% trans "FullNameTitle" %}</th>
+                <th>{% trans "CreationDateTitle" %}</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+                {% for user_ in all_users %}
+                <tr>
+                    <td>{{ user_.id }}</td>
+                    <td>{{ user_.username }}</td>
+                    <td>{{ user_.first_name }} {{ user_.last_name }}</td>
+                    <td>{{ user_.date_joined|date:"SHORT_DATE_FORMAT" }} {{ user_.date_joined|time:"H:i" }}</td>
+                    <td>
+                      <a href="{% url 'home' %}">{% trans "ChangeTitle" %}</a>
+                      <br>
+                      <a href="{% url 'home' %}">{% trans "DeleteTitle" %}</a>
+                    </td>
+                  </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% endblock %}
+</body>
+</html>

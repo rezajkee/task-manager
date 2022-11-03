@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-03 13:11+0500\n"
+"POT-Creation-Date: 2022-11-03 15:35+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -37,7 +37,7 @@ msgstr "Для подтверждения введите, пожалуйста, 
 msgid "PasswordMismatch"
 msgstr "Введённые пароли не совпадают"
 
-#: accounts/forms.py:28
+#: accounts/forms.py:28 templates/accounts/users.html:20
 msgid "UsernameTitle"
 msgstr "Имя пользователя"
 
@@ -50,13 +50,34 @@ msgstr "Регистрация"
 msgid "RegisterButton"
 msgstr "Зарегистрировать"
 
-#: templates/base.html:6 templates/base.html:15
-msgid "MainTitle"
-msgstr "Менеджер задач"
-
+#: templates/accounts/users.html:9 templates/accounts/users.html:14
 #: templates/base.html:22
 msgid "UsersTitle"
 msgstr "Пользователи"
+
+#: templates/accounts/users.html:19
+msgid "IdTitle"
+msgstr "ID"
+
+#: templates/accounts/users.html:21
+msgid "FullNameTitle"
+msgstr "Полное имя"
+
+#: templates/accounts/users.html:22
+msgid "CreationDateTitle"
+msgstr "Дата создания"
+
+#: templates/accounts/users.html:34
+msgid "ChangeTitle"
+msgstr "Изменить"
+
+#: templates/accounts/users.html:36
+msgid "DeleteTitle"
+msgstr "Удалить"
+
+#: templates/base.html:6 templates/base.html:15
+msgid "MainTitle"
+msgstr "Менеджер задач"
 
 #: templates/base.html:26
 msgid "StatusesTitle"
