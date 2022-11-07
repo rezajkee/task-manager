@@ -66,3 +66,7 @@ compilemessages:
 	cd task_manager/ ;\
 	poetry run django-admin compilemessages ;\
 	cd ..
+
+.PHONY: test
+test:
+	poetry run pytest

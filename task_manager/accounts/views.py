@@ -38,8 +38,6 @@ class CustomLogoutView(LogoutView):
         messages.add_message(request, messages.INFO, _("LogoutSuccessMessage"))
         return super(CustomLogoutView, self).dispatch(request, *args, **kwargs)
 
-    success_message = _("LogoutSuccessMessage")
-
 
 class UserCreateView(SuccessMessageMixin, generic.CreateView):
     """User registration with custom fields order

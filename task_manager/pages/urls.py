@@ -1,6 +1,5 @@
 from django.urls import path
 from django.views.generic.base import TemplateView
-
 from task_manager.accounts import views as acc_views
 
 urlpatterns = [
