@@ -6,26 +6,22 @@
     <meta charset="UTF-8">
 </head>
 <body>
-    {% block title %} | {% trans "LoginTitle" %} {% endblock %}
+    {% block title %} | {% trans "DeleteUserTitle" %} {% endblock %}
     {% block content %}
 
     <div class="container wrapper flex-grow-1">
 
         {% include 'includes/messages.html' %}
 
-        <h1 class="my-4">{% trans "LoginTitle" %}</h1>
+        <h1 class="my-4">{% trans "DeleteUserTitle" %}</h1>
+
+        <p>{% trans "SureDeleteQuestion" %} {{ object.first_name }} {{ object.last_name }}?</p>
 
         <form method="post">
             {% csrf_token %}
-        {% for field in form %}
             <div class="form-group">
-                {{ field.errors }}
-                {{ field.label_tag }} {{ field }}
+                <input class="btn btn-danger" type="submit" value='{% trans "SureDeleteButton" %}'>
             </div>
-        {% endfor %}
-        <div class="form-group">
-            <input class="btn btn-primary" type="submit" value='{% trans "LoginButton" %}'>
-        </div>
         </form>
     </div>
     {% endblock %}

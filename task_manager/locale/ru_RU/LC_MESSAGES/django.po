@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-03 15:35+0500\n"
+"POT-Creation-Date: 2022-11-06 23:03+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,61 +17,85 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: accounts/forms.py:8 accounts/forms.py:29
-msgid "PasswordTitle"
-msgstr "Пароль"
+#: accounts/utils.py:25
+msgid "LoginRequiredMessage"
+msgstr "Вы не авторизованы. Пожалуйста, выполните вход."
 
-#: accounts/forms.py:9
-msgid "PasswordConfirm"
-msgstr "Подтверждение пароля"
+#: accounts/utils.py:44
+msgid "UserPassesMessage"
+msgstr "Изменять или удалять пользователя может только его владелец"
 
-#: accounts/forms.py:10
-msgid "PasswordHelpText"
-msgstr "Ваш пароль должен содержать как минимум 3 символа."
+#: accounts/views.py:47
+msgid "LoginSuccessMessage"
+msgstr "Вы успешно авторизованы"
 
-#: accounts/forms.py:11
-msgid "PasswordConfirmHelpText"
-msgstr "Для подтверждения введите, пожалуйста, пароль ещё раз."
+#: accounts/views.py:52 accounts/views.py:54
+msgid "LogoutSuccessMessage"
+msgstr "Вы больше не авторизованы"
 
-#: accounts/forms.py:22
-msgid "PasswordMismatch"
-msgstr "Введённые пароли не совпадают"
+#: accounts/views.py:112
+msgid "UserCreateSuccessMessage"
+msgstr "Пользователь успешно зарегистрирован"
 
-#: accounts/forms.py:28 templates/accounts/users.html:20
-msgid "UsernameTitle"
-msgstr "Имя пользователя"
+#: accounts/views.py:129
+msgid "UserUpdateSuccessMessage"
+msgstr "Пользователь успешно изменён. Пожалуйста, выполните вход, используя новые данные."
 
-#: templates/accounts/register.html:9 templates/accounts/register.html:14
+#: accounts/views.py:140
+msgid "UserDeleteSuccessMessage"
+msgstr "Пользователь успешно удалён"
+
+#: templates/accounts/delete_user.html:9 templates/accounts/delete_user.html:16
+msgid "DeleteUserTitle"
+msgstr "Удалить пользователя"
+
+#: templates/accounts/delete_user.html:18
+msgid "SureDeleteQuestion"
+msgstr "Вы уверены, что хотите удалить пользователя"
+
+#: templates/accounts/delete_user.html:23
+msgid "SureDeleteButton"
+msgstr "Да, удалить"
+
+#: templates/accounts/register.html:9 templates/accounts/register.html:16
 #: templates/base.html:46
 msgid "RegisterTitle"
 msgstr "Регистрация"
 
-#: templates/accounts/register.html:28
+#: templates/accounts/register.html:30
 msgid "RegisterButton"
 msgstr "Зарегистрировать"
 
-#: templates/accounts/users.html:9 templates/accounts/users.html:14
+#: templates/accounts/update_user.html:9 templates/accounts/update_user.html:16
+msgid "EditUserTitle"
+msgstr "Изменить пользователя"
+
+#: templates/accounts/update_user.html:30 templates/accounts/users.html:36
+msgid "EditTitle"
+msgstr "Изменить"
+
+#: templates/accounts/users.html:9 templates/accounts/users.html:16
 #: templates/base.html:22
 msgid "UsersTitle"
 msgstr "Пользователи"
 
-#: templates/accounts/users.html:19
+#: templates/accounts/users.html:21
 msgid "IdTitle"
 msgstr "ID"
 
-#: templates/accounts/users.html:21
+#: templates/accounts/users.html:22
+msgid "UsernameTitle"
+msgstr "Имя пользователя"
+
+#: templates/accounts/users.html:23
 msgid "FullNameTitle"
 msgstr "Полное имя"
 
-#: templates/accounts/users.html:22
+#: templates/accounts/users.html:24
 msgid "CreationDateTitle"
 msgstr "Дата создания"
 
-#: templates/accounts/users.html:34
-msgid "ChangeTitle"
-msgstr "Изменить"
-
-#: templates/accounts/users.html:36
+#: templates/accounts/users.html:38
 msgid "DeleteTitle"
 msgstr "Удалить"
 
@@ -96,7 +120,7 @@ msgid "LogoutTitle"
 msgstr "Выход"
 
 #: templates/base.html:43 templates/pages/login.html:9
-#: templates/pages/login.html:14
+#: templates/pages/login.html:16
 msgid "LoginTitle"
 msgstr "Вход"
 
@@ -104,10 +128,25 @@ msgstr "Вход"
 msgid "MainPage"
 msgstr "Главная"
 
-#: templates/pages/home.html:14
+#: templates/pages/home.html:18
 msgid "Example"
 msgstr "Пример"
 
-#: templates/pages/login.html:25
+#: templates/pages/login.html:27
 msgid "LoginButton"
 msgstr "Войти"
+
+#~ msgid "PasswordTitle"
+#~ msgstr "Пароль"
+
+#~ msgid "PasswordConfirm"
+#~ msgstr "Подтверждение пароля"
+
+#~ msgid "PasswordHelpText"
+#~ msgstr "Ваш пароль должен содержать как минимум 3 символа."
+
+#~ msgid "PasswordConfirmHelpText"
+#~ msgstr "Для подтверждения введите, пожалуйста, пароль ещё раз."
+
+#~ msgid "PasswordMismatch"
+#~ msgstr "Введённые пароли не совпадают"

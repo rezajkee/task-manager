@@ -11,6 +11,8 @@
 
     <div class="container wrapper flex-grow-1">
 
+        {% include 'includes/messages.html' %}
+
         <h1 class="my-4">{% trans "UsersTitle" %}</h1>
 
         <table class="table table-striped">
@@ -31,9 +33,9 @@
                     <td>{{ user_.first_name }} {{ user_.last_name }}</td>
                     <td>{{ user_.date_joined|date:"SHORT_DATE_FORMAT" }} {{ user_.date_joined|time:"H:i" }}</td>
                     <td>
-                      <a href="{% url 'home' %}">{% trans "ChangeTitle" %}</a>
+                      <a href="{% url 'update_user' user_.id %}">{% trans "EditTitle" %}</a>
                       <br>
-                      <a href="{% url 'home' %}">{% trans "DeleteTitle" %}</a>
+                      <a href="{% url 'delete_user' user_.id %}">{% trans "DeleteTitle" %}</a>
                     </td>
                   </tr>
                 {% endfor %}

@@ -11,7 +11,10 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
+
 import dj_database_url
+from django.contrib.messages import constants
+from django.urls import reverse_lazy
 from dotenv import load_dotenv
 
 load_dotenv()  # take environment variables from .env
@@ -24,12 +27,19 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-zl!tb_1gfsngt#k_@et0sry!1il556-m1oxrlpx8k9!rx-d^wg"
+SECRET_KEY = (
+    "django-insecure-zl!tb_1gfsngt#k_@et0sry!1il556-m1oxrlpx8k9!rx-d^wg"
+)
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'webserver', 'web-production-b525.up.railway.app']
+ALLOWED_HOSTS = [
+    "127.0.0.1",
+    "localhost",
+    "webserver",
+    "web-production-b525.up.railway.app",
+]
 
 
 # Application definition
@@ -64,7 +74,7 @@ TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
         "DIRS": [
-            BASE_DIR / 'task_manager' / 'templates',
+            BASE_DIR / "task_manager" / "templates",
         ],
         "APP_DIRS": True,
         "OPTIONS": {
@@ -91,7 +101,7 @@ WSGI_APPLICATION = "task_manager.wsgi.application"
 #     }
 # }
 
-DATABASES = {'default': dj_database_url.config(conn_max_age=600)}
+DATABASES = {"default": dj_database_url.config(conn_max_age=600)}
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
@@ -138,19 +148,26 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-        'OPTIONS': {
-            'min_length': 3,
-        }
+        "NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",
+        "OPTIONS": {
+            "min_length": 3,
+        },
     },
 ]
 
 # Add Rails.app to csrf trusted urls
 
-CSRF_TRUSTED_ORIGINS = ['https://web-production-b525.up.railway.app']
+CSRF_TRUSTED_ORIGINS = ["https://web-production-b525.up.railway.app"]
 
+# Login settings
 
-# from django.urls import reverse_lazy
+LOGIN_REDIRECT_URL = reverse_lazy("home")
+LOGOUT_REDIRECT_URL = reverse_lazy("home")
+LOGIN_URL = reverse_lazy("login")
+LOGOUT_URL = reverse_lazy("logout")
 
-# LOGIN_URL = reverse_lazy('login')
-# LOGOUT_URL = reverse_lazy('logout')
+# Message settings
+
+MESSAGE_TAGS = {
+    constants.ERROR: "danger",
+}

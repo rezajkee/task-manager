@@ -22,34 +22,34 @@ shell:
 
 .PHONY: flake8
 flake8:
-	poetry run flake8 carzone
+	poetry run flake8 task_manager
 
 .PHONY: black-check
 black-check:
-	poetry run black --check carzone  
-# poetry run black --check --exclude=migrations carzone (без настроек в pyproject)
+	poetry run black --check task_manager  
+# poetry run black --check --exclude=migrations task_manager (без настроек в pyproject)
 
 .PHONY: black-diff
 black-diff:
-	poetry run black --diff carzone
-# poetry run black --diff --exclude=migrations carzone  (без настроек в pyproject)
+	poetry run black --diff task_manager
+# poetry run black --diff --exclude=migrations task_manager  (без настроек в pyproject)
 
 .PHONY: black
 black:
-	poetry run black carzone
-# poetry run black --exclude=migrations carzone  (без настроек в pyproject)
+	poetry run black task_manager
+# poetry run black --exclude=migrations task_manager  (без настроек в pyproject)
 
 .PHONY: isort-check
 isort-check:
-	poetry run isort carzone --check-only
+	poetry run isort task_manager --check-only
 
 .PHONY: isort-diff
 isort-diff:
-	poetry run isort carzone --diff
+	poetry run isort task_manager --diff
 
 .PHONY: isort
 isort:
-	poetry run isort carzone
+	poetry run isort task_manager
 
 .PHONY: exportreq
 exportreq:

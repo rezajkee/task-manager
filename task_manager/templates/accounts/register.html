@@ -11,11 +11,13 @@
 
     <div class="container wrapper flex-grow-1">
 
+        {% include 'includes/messages.html' %}
+
         <h1 class="my-4">{% trans "RegisterTitle" %}</h1>
 
         <form method="post">
             {% csrf_token %}
-        {% for field in user_form %}
+        {% for field in form %}
             <div class="form-group">
                 {{ field.errors }}
                 {{ field.label_tag }} {{ field }}
