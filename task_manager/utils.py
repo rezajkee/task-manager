@@ -1,7 +1,7 @@
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.shortcuts import redirect
-from django.utils.translation import gettext as _
+from django.utils.translation import gettext_lazy as _
 
 
 class PlaceholderMixin:
