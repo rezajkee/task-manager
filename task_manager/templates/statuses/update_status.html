@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    {% extends 'base.html' %}
+    {% load i18n %}
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    {% block title %} | {% trans "EditStatusTitle" %} {% endblock %}
+    {% block content %}
+
+    <div class="container wrapper flex-grow-1">
+
+        {% include 'includes/messages.html' %}
+
+        <h1 class="my-4">{% trans "EditStatusTitle" %}</h1>
+
+        <form method="post">
+            {% csrf_token %}
+        {% for field in form %}
+            <div class="form-group">
+                {{ field.errors }}
+                {{ field.label_tag }} {{ field }}
+                {% if field.help_text %}
+                <small class="form-text text-muted">{{ field.help_text|safe }}</small>
+                {% endif %}
+            </div>
+        {% endfor %}
+        <div class="form-group">
+            <input class="btn btn-primary" type="submit" value='{% trans "EditTitle" %}'>
+        </div>
+        </form>
+    </div>
+    {% endblock %}
+</body>
+</html>

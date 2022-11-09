@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-06 23:03+0500\n"
+"POT-Creation-Date: 2022-11-09 21:25+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,33 +17,49 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: accounts/utils.py:25
-msgid "LoginRequiredMessage"
-msgstr "Вы не авторизованы. Пожалуйста, выполните вход."
-
-#: accounts/utils.py:44
-msgid "UserPassesMessage"
-msgstr "Изменять или удалять пользователя может только его владелец"
-
-#: accounts/views.py:47
+#: accounts/views.py:19
 msgid "LoginSuccessMessage"
 msgstr "Вы успешно авторизованы"
 
-#: accounts/views.py:52 accounts/views.py:54
+#: accounts/views.py:26
 msgid "LogoutSuccessMessage"
 msgstr "Вы больше не авторизованы"
 
-#: accounts/views.py:112
+#: accounts/views.py:37
 msgid "UserCreateSuccessMessage"
 msgstr "Пользователь успешно зарегистрирован"
 
-#: accounts/views.py:129
+#: accounts/views.py:63
 msgid "UserUpdateSuccessMessage"
-msgstr "Пользователь успешно изменён. Пожалуйста, выполните вход, используя новые данные."
+msgstr ""
+"Пользователь успешно изменён. Пожалуйста, выполните вход, используя новые "
+"данные."
 
-#: accounts/views.py:140
+#: accounts/views.py:81
 msgid "UserDeleteSuccessMessage"
 msgstr "Пользователь успешно удалён"
+
+#: statuses/models.py:7 templates/statuses/statuses.html:24
+msgid "NameTitle"
+msgstr "Имя"
+
+#: statuses/models.py:9 templates/accounts/users.html:24
+#: templates/statuses/statuses.html:25
+msgid "CreationDateTitle"
+msgstr "Дата создания"
+
+#: statuses/views.py:20
+msgid "StatusCreateSuccessMessage"
+msgstr "Статус успешно создан"
+
+#: statuses/views.py:45
+msgid "StatusUpdateSuccessMessage"
+msgstr ""
+"Статус успешно изменён"
+
+#: statuses/views.py:59
+msgid "StatusDeleteSuccessMessage"
+msgstr "Статус успешно удалён"
 
 #: templates/accounts/delete_user.html:9 templates/accounts/delete_user.html:16
 msgid "DeleteUserTitle"
@@ -54,11 +70,12 @@ msgid "SureDeleteQuestion"
 msgstr "Вы уверены, что хотите удалить пользователя"
 
 #: templates/accounts/delete_user.html:23
+#: templates/statuses/delete_status.html:23
 msgid "SureDeleteButton"
 msgstr "Да, удалить"
 
 #: templates/accounts/register.html:9 templates/accounts/register.html:16
-#: templates/base.html:46
+#: templates/base.html:50
 msgid "RegisterTitle"
 msgstr "Регистрация"
 
@@ -71,6 +88,7 @@ msgid "EditUserTitle"
 msgstr "Изменить пользователя"
 
 #: templates/accounts/update_user.html:30 templates/accounts/users.html:36
+#: templates/statuses/statuses.html:36 templates/statuses/update_status.html:30
 msgid "EditTitle"
 msgstr "Изменить"
 
@@ -79,7 +97,7 @@ msgstr "Изменить"
 msgid "UsersTitle"
 msgstr "Пользователи"
 
-#: templates/accounts/users.html:21
+#: templates/accounts/users.html:21 templates/statuses/statuses.html:23
 msgid "IdTitle"
 msgstr "ID"
 
@@ -91,11 +109,7 @@ msgstr "Имя пользователя"
 msgid "FullNameTitle"
 msgstr "Полное имя"
 
-#: templates/accounts/users.html:24
-msgid "CreationDateTitle"
-msgstr "Дата создания"
-
-#: templates/accounts/users.html:38
+#: templates/accounts/users.html:38 templates/statuses/statuses.html:38
 msgid "DeleteTitle"
 msgstr "Удалить"
 
@@ -103,7 +117,8 @@ msgstr "Удалить"
 msgid "MainTitle"
 msgstr "Менеджер задач"
 
-#: templates/base.html:26
+#: templates/base.html:26 templates/statuses/statuses.html:9
+#: templates/statuses/statuses.html:16
 msgid "StatusesTitle"
 msgstr "Статусы"
 
@@ -115,11 +130,11 @@ msgstr "Метки"
 msgid "TasksTitle"
 msgstr "Задачи"
 
-#: templates/base.html:35
+#: templates/base.html:39
 msgid "LogoutTitle"
 msgstr "Выход"
 
-#: templates/base.html:43 templates/pages/login.html:9
+#: templates/base.html:47 templates/pages/login.html:9
 #: templates/pages/login.html:16
 msgid "LoginTitle"
 msgstr "Вход"
@@ -135,6 +150,37 @@ msgstr "Пример"
 #: templates/pages/login.html:27
 msgid "LoginButton"
 msgstr "Войти"
+
+#: templates/statuses/create_status.html:9
+#: templates/statuses/create_status.html:16 templates/statuses/statuses.html:18
+msgid "CreateStatusTitle"
+msgstr "Создать статус"
+
+#: templates/statuses/create_status.html:30
+msgid "CreateButton"
+msgstr "Создать"
+
+#: templates/statuses/delete_status.html:9
+#: templates/statuses/delete_status.html:16
+msgid "DeleteStatusTitle"
+msgstr "Удалить статус"
+
+#: templates/statuses/delete_status.html:18
+msgid "SureDeleteStatusQuestion"
+msgstr "Вы уверены, что хотите удалить статус"
+
+#: templates/statuses/update_status.html:9
+#: templates/statuses/update_status.html:16
+msgid "EditStatusTitle"
+msgstr "Изменить статус"
+
+#: utils.py:27
+msgid "LoginRequiredMessage"
+msgstr "Вы не авторизованы. Пожалуйста, выполните вход."
+
+#: utils.py:47
+msgid "UserPassesMessage"
+msgstr "Изменять или удалять пользователя может только его владелец"
 
 #~ msgid "PasswordTitle"
 #~ msgstr "Пароль"

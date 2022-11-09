@@ -1,7 +1,6 @@
 import pytest
 from django.contrib.auth import get_user_model
-
-from ...task_manager.statuses.models import Status
+from task_manager.statuses.models import Status
 
 
 @pytest.fixture
@@ -55,7 +54,7 @@ def second_test_user(user_reg_data):
     user_model = get_user_model()
     test_user = user_model.objects.create_user(
         username=user_reg_data.get("username"),
-        password=user_reg_data.get("password")
+        password=user_reg_data.get("password"),
     )
     test_user.save()
     return test_user
@@ -63,8 +62,6 @@ def second_test_user(user_reg_data):
 
 @pytest.fixture
 def test_status():
-    test_status = Status.objects.create(
-        name="test"
-    )
+    test_status = Status.objects.create(name="test")
     test_status.save()
     return test_status

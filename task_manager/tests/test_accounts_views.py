@@ -4,7 +4,9 @@ from django.contrib.auth import get_user_model
 
 
 @pytest.mark.django_db
-@pytest.mark.parametrize("param", [("home"), ("register"), ("login"), ("users")])
+@pytest.mark.parametrize(
+    "param", [("home"), ("register"), ("login"), ("users")]
+)
 def test_render_views(client, param):
     temp_url = urls.reverse(param)
     resp = client.get(temp_url)
@@ -66,7 +68,9 @@ def test_user_update_no_login(client, second_test_user, user_update_data):
 
 
 @pytest.mark.django_db
-def test_user_update_other_user(client, authenticated_user, second_test_user, user_update_data):
+def test_user_update_other_user(
+    client, authenticated_user, second_test_user, user_update_data
+):
     update_url = urls.reverse(
         "update_user", kwargs={"pk": second_test_user.id}
     )
@@ -101,9 +105,7 @@ def test_user_delete_no_login(client, second_test_user):
     assert resp.status_code == 302
     assert resp.url == urls.reverse("login")
     user_model = get_user_model()
-    assert (
-        user_model.objects.filter(id=second_test_user.id).exists() is True
-    )
+    assert user_model.objects.filter(id=second_test_user.id).exists() is True
 
 
 @pytest.mark.django_db
@@ -115,6 +117,4 @@ def test_user_delete_other_user(client, authenticated_user, second_test_user):
     assert resp.status_code == 302
     assert resp.url == urls.reverse("users")
     user_model = get_user_model()
-    assert (
-        user_model.objects.filter(id=second_test_user.id).exists() is True
-    )
+    assert user_model.objects.filter(id=second_test_user.id).exists() is True

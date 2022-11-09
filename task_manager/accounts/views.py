@@ -1,5 +1,4 @@
 from django.contrib import messages
-from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.models import User
 from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.messages.views import SuccessMessageMixin
@@ -7,19 +6,8 @@ from django.urls import reverse_lazy
 from django.utils.translation import gettext as _
 from django.views import generic
 
-from .forms import UserRegistrationForm
-from .utils import (
-    CustomLoginRequiredMixin,
-    CustomUserPassesTestMixin,
-    PlaceholderMixin,
-)
-
-
-class CustomAuthenticationForm(PlaceholderMixin, AuthenticationForm):
-    """Add placeholders and 'form-control' class to
-    AuthenticationForm fields."""
-
-    pass
+from ..utils import CustomLoginRequiredMixin, CustomUserPassesTestMixin
+from .forms import CustomAuthenticationForm, UserRegistrationForm
 
 
 class CustomLoginView(SuccessMessageMixin, LoginView):

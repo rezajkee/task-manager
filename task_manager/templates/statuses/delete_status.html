@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    {% extends 'base.html' %}
+    {% load i18n %}
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    {% block title %} | {% trans "DeleteStatusTitle" %} {% endblock %}
+    {% block content %}
+
+    <div class="container wrapper flex-grow-1">
+
+        {% include 'includes/messages.html' %}
+
+        <h1 class="my-4">{% trans "DeleteStatusTitle" %}</h1>
+
+        <p>{% trans "SureDeleteStatusQuestion" %} {{ object.name }}?</p>
+
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <input class="btn btn-danger" type="submit" value='{% trans "SureDeleteButton" %}'>
+            </div>
+        </form>
+    </div>
+    {% endblock %}
+</body>
+</html>
