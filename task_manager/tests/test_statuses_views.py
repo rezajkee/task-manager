@@ -36,8 +36,8 @@ def test_status_update(client, authenticated_user, test_status):
     resp = client.post(update_url, {"name": "not a test"})
     assert resp.status_code == 302
     assert resp.url == urls.reverse("statuses")
-    updated_user = Status.objects.get(id=test_status.id)
-    assert updated_user.name == "not a test"
+    updated_status = Status.objects.get(id=test_status.id)
+    assert updated_status.name == "not a test"
 
 
 @pytest.mark.django_db
@@ -46,8 +46,8 @@ def test_status_update_no_login(client, test_status):
     resp = client.post(update_url, {"name": "not a test"})
     assert resp.status_code == 302
     assert resp.url == urls.reverse("login")
-    updated_user = Status.objects.get(id=test_status.id)
-    assert updated_user.name == test_status.name
+    updated_status = Status.objects.get(id=test_status.id)
+    assert updated_status.name == test_status.name
 
 
 @pytest.mark.django_db
