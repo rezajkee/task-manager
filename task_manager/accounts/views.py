@@ -5,17 +5,16 @@ from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse_lazy
 from django.utils.translation import gettext_lazy as _
 from django.views import generic
+from django.contrib.auth.forms import AuthenticationForm
 
 from ..utils import CustomLoginRequiredMixin, CustomUserPassesTestMixin
-from .forms import CustomAuthenticationForm, UserRegistrationForm
+from .forms import UserRegistrationForm
 
 
 class CustomLoginView(SuccessMessageMixin, LoginView):
-    """Override authentication form to CustomAuthenticationForm,
-    change template path, add success message after authentication."""
+    """Change template path, add success message after authentication."""
 
     template_name = "pages/login.html"
-    authentication_form = CustomAuthenticationForm
     success_message = _("LoginSuccessMessage")
 
 

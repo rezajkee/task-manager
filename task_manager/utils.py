@@ -4,21 +4,6 @@ from django.shortcuts import redirect
 from django.utils.translation import gettext_lazy as _
 
 
-class PlaceholderMixin:
-    """Add placeholders with fields names on form fields
-    also add 'form-control' class to correctly display with
-    bootstrap4."""
-
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        field_names = [field_name for field_name, _ in self.fields.items()]
-        for field_name in field_names:
-            field = self.fields.get(field_name)
-            field.widget.attrs.update(
-                {"placeholder": field.label, "class": "form-control"}
-            )
-
-
 class CustomLoginRequiredMixin(LoginRequiredMixin):
     """The LoginRequiredMixin extended to add a relevant message to the
     messages framework by setting the 'login_required_message'

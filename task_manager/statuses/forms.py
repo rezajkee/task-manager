@@ -1,11 +1,10 @@
 from django.forms import ModelForm
 
-from ..utils import PlaceholderMixin
 from .models import Status
 
 
-class StatusCreationForm(PlaceholderMixin, ModelForm):
-    """Form with adding a placeholders and 'form-control' class."""
+class StatusCreationForm(ModelForm):
+    """Form for creating a status."""
 
     class Meta:
         model = Status

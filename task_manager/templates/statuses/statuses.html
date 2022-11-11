@@ -2,6 +2,7 @@
 <html>
     {% extends 'base.html' %}
     {% load i18n %}
+    {% load bootstrap4 %}
 <head>
     <meta charset="UTF-8">
 </head>
@@ -11,7 +12,7 @@
 
     <div class="container wrapper flex-grow-1">
 
-        {% include 'includes/messages.html' %}
+        {% bootstrap_messages %}
 
         <h1 class="my-4">{% trans "StatusesTitle" %}</h1>
 
