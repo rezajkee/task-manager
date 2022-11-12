@@ -28,6 +28,8 @@ def user_creation_data():
 @pytest.fixture
 def user_update_data():
     return {
+        "first_name": "Keanu",
+        "last_name": "Reeves",
         "username": "Neo",
         "password1": "MatrixHasU",
         "password2": "MatrixHasU",
@@ -54,8 +56,10 @@ def authenticated_user(client, user_creation_data):
 def second_test_user(user_reg_data):
     user_model = get_user_model()
     test_user = user_model.objects.create_user(
+        first_name=user_reg_data.get("first_name"),
+        last_name=user_reg_data.get("last_name"),
         username=user_reg_data.get("username"),
-        password=user_reg_data.get("password"),
+        password=user_reg_data.get("password1"),
     )
     test_user.save()
     return test_user

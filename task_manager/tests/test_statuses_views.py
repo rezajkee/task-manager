@@ -31,7 +31,7 @@ def test_status_creation_no_login(client):
 
 
 @pytest.mark.django_db
-def test_status_update(client, authenticated_user, test_status):
+def test_status_update(client, test_status, authenticated_user):
     update_url = urls.reverse("update_status", kwargs={"pk": test_status.id})
     resp = client.post(update_url, {"name": "not a test"})
     assert resp.status_code == 302
@@ -51,7 +51,8 @@ def test_status_update_no_login(client, test_status):
 
 
 @pytest.mark.django_db
-def test_status_delete(client, authenticated_user, test_status):
+def test_status_delete(client, test_status, authenticated_user):
+    assert Status.objects.filter(id=test_status.id).exists() is True
     delete_url = urls.reverse("delete_status", kwargs={"pk": test_status.id})
     resp = client.post(delete_url)
     assert resp.status_code == 302
@@ -61,6 +62,7 @@ def test_status_delete(client, authenticated_user, test_status):
 
 @pytest.mark.django_db
 def test_status_delete_no_login(client, test_status):
+    assert Status.objects.filter(id=test_status.id).exists() is True
     delete_url = urls.reverse("delete_status", kwargs={"pk": test_status.id})
     resp = client.post(delete_url)
     assert resp.status_code == 302
