@@ -31,7 +31,9 @@ class CustomUserPassesTestMixin(UserPassesTestMixin):
     Don't forget to override "permission_denied_message" and
     "redirect_url" attributes in CustomUserPassesTestMixin."""
 
-    permission_denied_message = "Don't forget to override attributes in CustomUserPassesTestMixin"
+    permission_denied_message = (
+        "Don't forget to override attributes in CustomUserPassesTestMixin"
+    )
     redirect_url = "home"
 
     def dispatch(self, request, *args, **kwargs):

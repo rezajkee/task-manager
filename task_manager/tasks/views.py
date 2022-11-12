@@ -81,5 +81,6 @@ class TaskDetailView(
     generic.DetailView,
 ):
     """Rendering a page of the detailed task only by a logged-in user."""
+
     model = Task
     template_name = "tasks/detail_task.html"

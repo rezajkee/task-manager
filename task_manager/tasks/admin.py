@@ -13,7 +13,7 @@ class TaskAdmin(admin.ModelAdmin):
         "creation_date",
     )
     list_editable = ("name",)
-    exclude = ('author',)
+    exclude = ("author",)
 
     def save_model(self, request, obj, form, change):
         obj.author = request.user

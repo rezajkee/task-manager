@@ -1,10 +1,10 @@
+from django.contrib import messages
 from django.contrib.messages.views import SuccessMessageMixin
+from django.db.models import ProtectedError
+from django.shortcuts import redirect
 from django.urls import reverse_lazy
 from django.utils.translation import gettext_lazy as _
 from django.views import generic
-from django.db.models import ProtectedError
-from django.shortcuts import redirect
-from django.contrib import messages
 
 from ..utils import CustomLoginRequiredMixin
 from .forms import StatusCreationForm
@@ -65,7 +65,9 @@ class StatusDeleteView(
 
     def post(self, request, *args, **kwargs):
         try:
-            return super(StatusDeleteView, self).post(self, request, *args, **kwargs)
+            return super(StatusDeleteView, self).post(
+                self, request, *args, **kwargs
+            )
         except ProtectedError:
             messages.add_message(
                 request, messages.ERROR, _("StatusProtectedMessage")
