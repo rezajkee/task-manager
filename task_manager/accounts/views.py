@@ -5,13 +5,16 @@ from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse_lazy
 from django.utils.translation import gettext_lazy as _
 from django.views import generic
+from django.db.models import ProtectedError
+from django.shortcuts import redirect
+from django.contrib import messages
 
 from ..utils import CustomLoginRequiredMixin, CustomUserPassesTestMixin
 from .forms import UserRegistrationForm
 
 
 class AccountsUserPassesTestMixin(CustomUserPassesTestMixin):
-    """Override mixin attributes for a accounts views."""
+    """Override mixin's attributes for a accounts views."""
 
     permission_denied_message = _("AccountsUserPassesMessage")
     redirect_url = "users"
@@ -34,7 +37,7 @@ class CustomLogoutView(LogoutView):
 
 class UserCreateView(SuccessMessageMixin, generic.CreateView):
     """User registration with custom fields order
-    and add a success message."""
+    and adding the success message."""
 
     form_class = UserRegistrationForm
     success_url = reverse_lazy("login")
@@ -43,7 +46,7 @@ class UserCreateView(SuccessMessageMixin, generic.CreateView):
 
 
 class UserListView(generic.ListView):
-    """Render list of all registered users."""
+    """Render a list of all registered users."""
 
     model = User
     form_class = UserRegistrationForm
@@ -58,8 +61,8 @@ class UserUpdateView(
     SuccessMessageMixin,
     generic.UpdateView,
 ):
-    """Updating user's fields only by user's owner
-    and add a success message."""
+    """Updating user's fields only by a user's owner
+    and adding the success message."""
 
     model = User
     form_class = UserRegistrationForm
@@ -77,8 +80,10 @@ class UserDeleteView(
     SuccessMessageMixin,
     generic.DeleteView,
 ):
-    """Delete user only by user's owner
-    and add a success message."""
+    """Delete a user only by a user's owner
+    and adding the success message.
+    Prohibit deletion if user
+    involved in a task."""
 
     model = User
     template_name = "accounts/delete_user.html"
@@ -87,3 +92,12 @@ class UserDeleteView(
 
     def test_func(self):
         return self.request.user.id == self.kwargs["pk"]
+
+    def post(self, request, *args, **kwargs):
+        try:
+            return super(UserDeleteView, self).post(self, request, *args, **kwargs)
+        except ProtectedError:
+            messages.add_message(
+                request, messages.ERROR, _("UserProtectedMessage")
+            )
+            return redirect("users")

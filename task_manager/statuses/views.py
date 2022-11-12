@@ -2,6 +2,9 @@ from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse_lazy
 from django.utils.translation import gettext_lazy as _
 from django.views import generic
+from django.db.models import ProtectedError
+from django.shortcuts import redirect
+from django.contrib import messages
 
 from ..utils import CustomLoginRequiredMixin
 from .forms import StatusCreationForm
@@ -12,7 +15,7 @@ class StatusCreateView(
     CustomLoginRequiredMixin, SuccessMessageMixin, generic.CreateView
 ):
     """Status creation only by a logged-in user
-    with adding a success message."""
+    with adding the success message."""
 
     form_class = StatusCreationForm
     success_url = reverse_lazy("statuses")
@@ -36,7 +39,7 @@ class StatusUpdateView(
     generic.UpdateView,
 ):
     """Updating status's name only by a logged-in user
-    with adding a success message."""
+    with adding the success message."""
 
     model = Status
     form_class = StatusCreationForm
@@ -51,9 +54,20 @@ class StatusDeleteView(
     generic.DeleteView,
 ):
     """Deleting a status only by a logged-in user
-    with adding a success message."""
+    with adding the success message.
+    Prohibit deletion if status
+    involved in a task."""
 
     model = Status
     template_name = "statuses/delete_status.html"
     success_url = reverse_lazy("statuses")
     success_message = _("StatusDeleteSuccessMessage")
+
+    def post(self, request, *args, **kwargs):
+        try:
+            return super(StatusDeleteView, self).post(self, request, *args, **kwargs)
+        except ProtectedError:
+            messages.add_message(
+                request, messages.ERROR, _("StatusProtectedMessage")
+            )
+            return redirect("statuses")

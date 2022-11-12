@@ -84,13 +84,16 @@ def test_user_update_other_user(
 
 @pytest.mark.django_db
 def test_user_delete(client, authenticated_user):
+    user_model = get_user_model()
+    assert (
+        user_model.objects.filter(id=authenticated_user.id).exists() is True
+    )
     delete_url = urls.reverse(
         "delete_user", kwargs={"pk": authenticated_user.id}
     )
     resp = client.post(delete_url)
     assert resp.status_code == 302
     assert resp.url == urls.reverse("users")
-    user_model = get_user_model()
     assert (
         user_model.objects.filter(id=authenticated_user.id).exists() is False
     )
@@ -118,3 +121,15 @@ def test_user_delete_other_user(client, authenticated_user, second_test_user):
     assert resp.url == urls.reverse("users")
     user_model = get_user_model()
     assert user_model.objects.filter(id=second_test_user.id).exists() is True
+
+
+@pytest.mark.django_db
+def test_user_in_task_delete(client, test_task_by_auth_user, authenticated_user):
+    delete_url = urls.reverse(
+        "delete_user", kwargs={"pk": authenticated_user.id}
+    )
+    resp = client.post(delete_url)
+    assert resp.status_code == 302
+    assert resp.url == urls.reverse("users")
+    user_model = get_user_model()
+    assert user_model.objects.filter(id=authenticated_user.id).exists() is True

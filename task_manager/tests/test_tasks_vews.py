@@ -82,7 +82,6 @@ def test_task_delete_by_author(client, test_task_by_auth_user, authenticated_use
 
 @pytest.mark.django_db
 def test_task_delete_no_login(client, test_task):
-    assert Task.objects.filter(id=test_task.id).exists() is True
     delete_url = urls.reverse("delete_task", kwargs={"pk": test_task.id})
     resp = client.post(delete_url)
     assert resp.status_code == 302
@@ -92,7 +91,6 @@ def test_task_delete_no_login(client, test_task):
 
 @pytest.mark.django_db
 def test_task_delete_wrong_user(client, test_task, authenticated_user):
-    assert Task.objects.filter(id=test_task.id).exists() is True
     delete_url = urls.reverse("delete_task", kwargs={"pk": test_task.id})
     resp = client.post(delete_url)
     assert resp.status_code == 302

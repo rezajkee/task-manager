@@ -18,9 +18,9 @@ class TasksUserPassesTestMixin(CustomUserPassesTestMixin):
 class TaskCreateView(
     CustomLoginRequiredMixin, SuccessMessageMixin, generic.CreateView
 ):
-    """Task creation only by logged-in user
+    """Task creation only by a logged-in user
     with adding this user as the author and
-    adding a success message."""
+    adding the success message."""
 
     form_class = TaskCreationForm
     success_url = reverse_lazy("tasks")
@@ -34,7 +34,7 @@ class TaskCreateView(
 
 
 class TaskListView(CustomLoginRequiredMixin, generic.ListView):
-    """Rendering a list of all existing tasks only by logged-in user."""
+    """Rendering a list of all existing tasks only by a logged-in user."""
 
     model = Task
     fields = ("id", "name", "creation_date")
@@ -48,8 +48,8 @@ class TaskUpdateView(
     SuccessMessageMixin,
     generic.UpdateView,
 ):
-    """Updating task's fields only by logged-in user
-    with adding a success message."""
+    """Updating task's fields only by a logged-in user
+    with adding the success message."""
 
     model = Task
     form_class = TaskCreationForm
@@ -65,7 +65,7 @@ class TaskDeleteView(
     generic.DeleteView,
 ):
     """Deleting a task only by the author
-    with adding a success message."""
+    with adding the success message."""
 
     model = Task
     template_name = "tasks/delete_task.html"
@@ -80,6 +80,6 @@ class TaskDetailView(
     CustomLoginRequiredMixin,
     generic.DetailView,
 ):
-    """Rendering a page of the detailed task only by logged-in user."""
+    """Rendering a page of the detailed task only by a logged-in user."""
     model = Task
     template_name = "tasks/detail_task.html"

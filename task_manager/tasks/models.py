@@ -28,7 +28,7 @@ USER_MODEL.add_to_class("__str__", get_full_name)
 
 class Task(models.Model):
     name = models.CharField(_("NameTitle"), max_length=100)
-    author = models.ForeignKey(USER_MODEL, verbose_name=_("AuthorTitle"), related_name="tasks", null=True, blank=True, on_delete=models.CASCADE)
+    author = models.ForeignKey(USER_MODEL, verbose_name=_("AuthorTitle"), related_name="tasks", null=True, blank=True, on_delete=models.PROTECT)
     description = models.TextField(_("DescriptionTitle"), blank=True)
     status = models.ForeignKey(Status, verbose_name=_("StatusTitle"), on_delete=models.PROTECT)
     doer = models.ForeignKey(USER_MODEL, verbose_name=_("DoerTitle"), default="", null=True, blank=True, on_delete=models.PROTECT)

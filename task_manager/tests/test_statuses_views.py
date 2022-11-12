@@ -62,9 +62,17 @@ def test_status_delete(client, test_status, authenticated_user):
 
 @pytest.mark.django_db
 def test_status_delete_no_login(client, test_status):
-    assert Status.objects.filter(id=test_status.id).exists() is True
     delete_url = urls.reverse("delete_status", kwargs={"pk": test_status.id})
     resp = client.post(delete_url)
     assert resp.status_code == 302
     assert resp.url == urls.reverse("login")
     assert Status.objects.filter(id=test_status.id).exists() is True
+
+
+@pytest.mark.django_db
+def test_status_in_task_delete(client, test_task, authenticated_user):
+    delete_url = urls.reverse("delete_status", kwargs={"pk": test_task.status.id})
+    resp = client.post(delete_url)
+    assert resp.status_code == 302
+    assert resp.url == urls.reverse("statuses")
+    assert Status.objects.filter(id=test_task.status.id).exists() is True
