@@ -27,12 +27,9 @@ class CustomUserPassesTestMixin(UserPassesTestMixin):
     """Override UserPassesTestMixin method 'dispatch' to add
     a relevant message to the messages framework by setting the
     'permission_denied_message' attribute and redirect to users
-    page without raising the PermissionDenied exception.
-    Don't forget to override "permission_denied_message" and
-    "redirect_url" attributes in CustomUserPassesTestMixin."""
+    page without raising the PermissionDenied exception."""
 
-    permission_denied_message = "Don't forget to override attributes in CustomUserPassesTestMixin"
-    redirect_url = "home"
+    permission_denied_message = _("UserPassesMessage")
 
     def dispatch(self, request, *args, **kwargs):
         user_test_result = self.get_test_func()()
@@ -40,7 +37,7 @@ class CustomUserPassesTestMixin(UserPassesTestMixin):
             messages.add_message(
                 request, messages.ERROR, self.permission_denied_message
             )
-            return redirect(self.redirect_url)
+            return redirect("users")
         return super(CustomUserPassesTestMixin, self).dispatch(
             request, *args, **kwargs
         )

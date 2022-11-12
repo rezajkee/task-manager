@@ -11,7 +11,7 @@ from .models import Status
 class StatusCreateView(
     CustomLoginRequiredMixin, SuccessMessageMixin, generic.CreateView
 ):
-    """Status creation only by logged in user
+    """Status creation only by a logged-in user
     with adding a success message."""
 
     form_class = StatusCreationForm
@@ -21,7 +21,7 @@ class StatusCreateView(
 
 
 class StatusListView(CustomLoginRequiredMixin, generic.ListView):
-    """Render list of all existing statuses only by logged in user."""
+    """Rendering a list of all existing statuses only by a logged-in user."""
 
     model = Status
     fields = ("id", "name", "creation_date")
@@ -35,8 +35,8 @@ class StatusUpdateView(
     SuccessMessageMixin,
     generic.UpdateView,
 ):
-    """Updating status's name only by logged in user
-    and add a success message."""
+    """Updating status's name only by a logged-in user
+    with adding a success message."""
 
     model = Status
     form_class = StatusCreationForm
@@ -50,8 +50,8 @@ class StatusDeleteView(
     SuccessMessageMixin,
     generic.DeleteView,
 ):
-    """Delete status only by logged in user
-    and add a success message."""
+    """Deleting a status only by a logged-in user
+    with adding a success message."""
 
     model = Status
     template_name = "statuses/delete_status.html"

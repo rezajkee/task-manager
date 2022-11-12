@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    {% extends 'base.html' %}
+    {% load i18n %}
+    {% load bootstrap4 %}
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    {% block title %} | {% trans "DetailTaskTitle" %} {% endblock %}
+    {% block content %}
+
+    <div class="container wrapper flex-grow-1">
+
+        {% bootstrap_messages %}
+
+        <h1 class="my-4">{% trans "DetailTaskTitle" %}</h1>
+
+        <div class="card">
+            <div class="card-header bg-secondary text-white">
+                <h2>{{ object.name }}</h2>
+            </div>
+            <div class="card-body bg-light">
+                <p>{{ object.description }}</p>
+                <hr>
+                <div class="container">
+                    <div class="row p-1">
+                        <div class="col">{% trans "AuthorTitle" %}</div>
+                        <div class="col">{{ object.author }}</div>
+                    </div>
+                    <div class="row p-1">
+                        <div class="col">{% trans "DoerTitle" %}</div>
+                        <div class="col">{{ object.doer }}</div>
+                    </div>
+                    <div class="row p-1">
+                        <div class="col">{% trans "StatusTitle" %}</div>
+                        <div class="col">{{ object.status }}</div>
+                    </div>
+                    <div class="row p-1">
+                        <div class="col">{% trans "CreationDateTitle" %}</div>
+                        <div class="col">{{ task.creation_date|date:"SHORT_DATE_FORMAT" }} {{ task.creation_date|time:"H:i" }}</div>
+                    </div>
+                    <div class="row p-1">
+                        <div class="col">
+                            <h6>{% trans "TagsTitle" %}:</h6>
+                            <ul>
+                            
+                                <li>example</li>
+                            
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row p-1">
+                        <div class="col">
+                            <a href="{% url 'update_task' task.id %}">{% trans "EditTitle" %}</a>
+                            <br>
+                            <a href="{% url 'delete_task' task.id %}">{% trans "DeleteTitle" %}</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endblock %}
+</body>
+</html>

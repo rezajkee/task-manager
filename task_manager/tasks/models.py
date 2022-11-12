@@ -3,10 +3,27 @@ from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 from django.contrib.auth import get_user_model
 from ..statuses.models import Status
-from django.conf import settings
 
 
 USER_MODEL = get_user_model()
+
+
+def get_full_name(self):
+    return f"{self.first_name} {self.last_name}"
+
+
+# Inject get_full_name method instead of __str__ to User model
+USER_MODEL.add_to_class("__str__", get_full_name)
+
+
+# class FullNamedUser(USER_MODEL):
+#     """Proxy model for a User model.
+#     Adds fullname __str__ method."""
+#     class Meta:
+#         proxy = True
+
+#     def __str__(self):
+#         return f"{self.first_name} {self.last_name}"
 
 
 class Task(models.Model):
@@ -14,14 +31,10 @@ class Task(models.Model):
     author = models.ForeignKey(USER_MODEL, verbose_name=_("AuthorTitle"), related_name="tasks", null=True, blank=True, on_delete=models.CASCADE)
     description = models.TextField(_("DescriptionTitle"), blank=True)
     status = models.ForeignKey(Status, verbose_name=_("StatusTitle"), on_delete=models.PROTECT)
-    doer = models.ForeignKey(USER_MODEL, verbose_name=_("DoerTitle"), blank=True, null=True, on_delete=models.SET_NULL)
+    doer = models.ForeignKey(USER_MODEL, verbose_name=_("DoerTitle"), default="", null=True, blank=True, on_delete=models.PROTECT)
     creation_date = models.DateTimeField(
         _("CreationDateTitle"), default=timezone.now
     )
 
     def __str__(self):
         return f"{self.name}"
-
-    def save_model(self, request, obj, form, change):
-        obj.author = request.user
-        super().save_model(request, obj, form, change)

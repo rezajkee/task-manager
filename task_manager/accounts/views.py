@@ -5,10 +5,16 @@ from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse_lazy
 from django.utils.translation import gettext_lazy as _
 from django.views import generic
-from django.contrib.auth.forms import AuthenticationForm
 
 from ..utils import CustomLoginRequiredMixin, CustomUserPassesTestMixin
 from .forms import UserRegistrationForm
+
+
+class AccountsUserPassesTestMixin(CustomUserPassesTestMixin):
+    """Override mixin attributes for a accounts views."""
+
+    permission_denied_message = _("AccountsUserPassesMessage")
+    redirect_url = "users"
 
 
 class CustomLoginView(SuccessMessageMixin, LoginView):
@@ -48,7 +54,7 @@ class UserListView(generic.ListView):
 
 class UserUpdateView(
     CustomLoginRequiredMixin,
-    CustomUserPassesTestMixin,
+    AccountsUserPassesTestMixin,
     SuccessMessageMixin,
     generic.UpdateView,
 ):
@@ -67,7 +73,7 @@ class UserUpdateView(
 
 class UserDeleteView(
     CustomLoginRequiredMixin,
-    CustomUserPassesTestMixin,
+    AccountsUserPassesTestMixin,
     SuccessMessageMixin,
     generic.DeleteView,
 ):
@@ -81,59 +87,3 @@ class UserDeleteView(
 
     def test_func(self):
         return self.request.user.id == self.kwargs["pk"]
-
-
-# def register(request):
-#     if request.method == 'POST':
-#         user_form = UserRegistrationForm(request.POST)
-#         if user_form.is_valid():
-#             new_user = user_form.save(commit=False)
-#             new_user.set_password(user_form.cleaned_data['password'])
-#             new_user.save()
-#             # ADD MESSAGE Пользователь успешно зарегистрирован
-#             return redirect("login")
-#     else:
-#         user_form = UserRegistrationForm()
-#     return render(request, 'accounts/register.html', {'user_form': user_form})
-
-
-# def login_user(request):
-#     if request.method == 'POST':
-#         form = LoginForm(request.POST)
-#         if form.is_valid():
-#             cd = form.cleaned_data
-#             user = authenticate(
-#                               username=cd['username'], password=cd['password']
-#             )
-#             if user is not None:
-#                 if user.is_active:
-#                     login(request, user)
-#                     messages.add_message(request, messages.SUCCESS,
-#                                         _('LoginSuccessMessage'))
-#                     return redirect('home')
-#                 else:
-#                     messages.add_message(request, messages.ERROR,
-#                                         _('InactiveAccountMessage'))
-#                     # ADD MESSAGE Ваш аккаунт неактивен
-#                     return redirect("login")
-#             else:
-#                 messages.add_message(request, messages.ERROR,
-#                                     _('WrongLoginMessage'))
-#                 # ADD MESSAGE Пожалуйста, введите правильные
-#                 return redirect("login")
-#     else:
-#         form = LoginForm()
-#     return render(request, 'pages/login.html', {'form': form})
-
-
-# def logout_user(request):
-#     if request.method == "POST":
-#         logout(request)
-#     messages.add_message(request, messages.SUCCESS,
-#                         _('LogoutSuccessMessage'))
-#     return redirect("home")
-
-
-# def users(request):
-#     all_users = User.objects.order_by('date_joined')
-#     return render(request, 'accounts/users.html', {'all_users': all_users})

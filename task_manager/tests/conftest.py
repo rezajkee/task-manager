@@ -69,14 +69,14 @@ def test_status():
 
 
 @pytest.fixture
-def test_task(second_test_user):
-    test_task = Task.objects.create(name="test", author=second_test_user.id)
+def test_task(second_test_user, test_status):
+    test_task = Task.objects.create(name="test", author=second_test_user, status=test_status)
     test_task.save()
     return test_task
 
 
 @pytest.fixture
-def test_task_by_auth_user(authenticated_user):
-    test_task = Task.objects.create(name="test", author=authenticated_user.id)
+def test_task_by_auth_user(authenticated_user, test_status):
+    test_task = Task.objects.create(name="test", author=authenticated_user, status=test_status)
     test_task.save()
     return test_task
