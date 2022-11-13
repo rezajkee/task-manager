@@ -18,13 +18,13 @@
 
         <table class="table table-striped">
             <thead>
-                <tr>
-                    <th>{% trans "IdTitle" %}</th>
-                    <th>{% trans "UsernameTitle" %}</th>
-                    <th>{% trans "FullNameTitle" %}</th>
-                    <th>{% trans "CreationDateTitle" %}</th>
-                    <th></th>
-                </tr>
+              <tr>
+                <th>{% trans "IdTitle" %}</th>
+                <th>{% trans "UsernameTitle" %}</th>
+                <th>{% trans "FullNameTitle" %}</th>
+                <th>{% trans "CreationDateTitle" %}</th>
+                <th></th>
+              </tr>
             </thead>
             <tbody>
                 {% for user_ in all_users %}
@@ -34,9 +34,9 @@
                     <td>{{ user_.first_name }} {{ user_.last_name }}</td>
                     <td>{{ user_.date_joined|date:"SHORT_DATE_FORMAT" }} {{ user_.date_joined|time:"H:i" }}</td>
                     <td>
-                        <a href="{% url 'update_user' user_.id %}">{% trans "EditTitle" %}</a>
-                        <br>
-                        <a href="{% url 'delete_user' user_.id %}">{% trans "DeleteTitle" %}</a>
+                      <a href="{% url 'update_user' user_.id %}">{% trans "EditTitle" %}</a>
+                      <br>
+                      <a href="{% url 'delete_user' user_.id %}">{% trans "DeleteTitle" %}</a>
                     </td>
                   </tr>
                 {% endfor %}

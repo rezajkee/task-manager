@@ -20,15 +20,15 @@
 
         <table class="table table-striped">
             <thead>
-                <tr>
-                    <th>{% trans "IdTitle" %}</th>
-                    <th>{% trans "NameTitle" %}</th>
-                    <th>{% trans "StatusTitle" %}</th>
-                    <th>{% trans "AuthorTitle" %}</th>
-                    <th>{% trans "DoerTitle" %}</th>
-                    <th>{% trans "CreationDateTitle" %}</th>
-                    <th></th>
-                </tr>
+              <tr>
+                <th>{% trans "IdTitle" %}</th>
+                <th>{% trans "NameTitle" %}</th>
+                <th>{% trans "StatusTitle" %}</th>
+                <th>{% trans "AuthorTitle" %}</th>
+                <th>{% trans "DoerTitle" %}</th>
+                <th>{% trans "CreationDateTitle" %}</th>
+                <th></th>
+              </tr>
             </thead>
             <tbody>
                 {% for task in all_tasks %}
@@ -40,9 +40,9 @@
                     <td>{{ task.doer|default_if_none:"" }}</td>
                     <td>{{ task.creation_date|date:"SHORT_DATE_FORMAT" }} {{ task.creation_date|time:"H:i" }}</td>
                     <td>
-                        <a href="{% url 'update_task' task.id %}">{% trans "EditTitle" %}</a>
-                        <br>
-                        <a href="{% url 'delete_task' task.id %}">{% trans "DeleteTitle" %}</a>
+                      <a href="{% url 'update_task' task.id %}">{% trans "EditTitle" %}</a>
+                      <br>
+                      <a href="{% url 'delete_task' task.id %}">{% trans "DeleteTitle" %}</a>
                     </td>
                   </tr>
                 {% endfor %}
