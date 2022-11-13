@@ -1,7 +1,6 @@
 import pytest
 from django.contrib.auth import get_user_model
 from task_manager.statuses.models import Status
-from task_manager.tags.models import Tag
 from task_manager.tasks.models import Task
 
 
@@ -74,16 +73,9 @@ def test_status():
 
 
 @pytest.fixture
-def test_tag():
-    test_tag = Tag.objects.create(name="test")
-    test_tag.save()
-    return test_tag
-
-
-@pytest.fixture
-def test_task(second_test_user, test_status, test_tag):
+def test_task(second_test_user, test_status):
     test_task = Task.objects.create(
-        name="test", author=second_test_user, status=test_status, tags=test_tag
+        name="test", author=second_test_user, status=test_status
     )
     test_task.save()
     return test_task
