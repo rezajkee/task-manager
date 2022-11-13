@@ -48,15 +48,10 @@ class Task(models.Model):
         blank=True,
         on_delete=models.PROTECT,
     )
-    tags = models.ManyToManyField(Tag, verbose_name=_("TagsTitle"), through="TaskTags")
+    tags = models.ManyToManyField(Tag, verbose_name=_("TagsTitle"), blank=True)
     creation_date = models.DateTimeField(
         _("CreationDateTitle"), default=timezone.now
     )
 
     def __str__(self):
         return f"{self.name}"
-
-
-class TaskTags(models.Model):
-    task = models.ForeignKey(Task, on_delete=models.CASCADE)
-    tags = models.ForeignKey(Tag, on_delete=models.PROTECT)

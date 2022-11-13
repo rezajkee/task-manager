@@ -73,8 +73,7 @@ class TaskDeleteView(
     success_message = _("TaskDeleteSuccessMessage")
 
     def test_func(self):
-        author = Task.objects.get(id=self.kwargs["pk"]).author
-        return self.request.user == author
+        return self.request.user.id == self.kwargs["pk"]
 
 
 class TaskDetailView(
