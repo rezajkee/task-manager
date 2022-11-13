@@ -30,7 +30,7 @@
                     </div>
                     <div class="row p-1">
                         <div class="col">{% trans "DoerTitle" %}</div>
-                        <div class="col">{{ object.doer }}</div>
+                        <div class="col">{{ object.doer|default_if_none:"" }}</div>
                     </div>
                     <div class="row p-1">
                         <div class="col">{% trans "StatusTitle" %}</div>
@@ -44,9 +44,9 @@
                         <div class="col">
                             <h6>{% trans "TagsTitle" %}:</h6>
                             <ul>
-                            
-                                <li>example</li>
-                            
+                                {% for tag in object.tags.all %}
+                                <li>{{ tag }}</li>
+                                {% endfor %}
                             </ul>
                         </div>
                     </div>
