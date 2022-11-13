@@ -4,6 +4,7 @@ from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 
 from ..statuses.models import Status
+from ..tags.models import Tag
 
 USER_MODEL = get_user_model()
 
@@ -43,11 +44,11 @@ class Task(models.Model):
     doer = models.ForeignKey(
         USER_MODEL,
         verbose_name=_("DoerTitle"),
-        default="",
         null=True,
         blank=True,
         on_delete=models.PROTECT,
     )
+    tags = models.ManyToManyField(Tag, verbose_name=_("TagsTitle"), blank=True)
     creation_date = models.DateTimeField(
         _("CreationDateTitle"), default=timezone.now
     )

@@ -7,36 +7,36 @@
     <meta charset="UTF-8">
 </head>
 <body>
-    {% block title %} | {% trans "UsersTitle" %} {% endblock %}
+    {% block title %} | {% trans "TagsTitle" %} {% endblock %}
     {% block content %}
 
     <div class="container wrapper flex-grow-1">
 
         {% bootstrap_messages %}
 
-        <h1 class="my-4">{% trans "UsersTitle" %}</h1>
+        <h1 class="my-4">{% trans "TagsTitle" %}</h1>
+
+        <a class="nav-link" href="{% url 'create_tag' %}">{% trans "CreateTagTitle" %}</a>
 
         <table class="table table-striped">
             <thead>
                 <tr>
                     <th>{% trans "IdTitle" %}</th>
-                    <th>{% trans "UsernameTitle" %}</th>
-                    <th>{% trans "FullNameTitle" %}</th>
+                    <th>{% trans "NameTitle" %}</th>
                     <th>{% trans "CreationDateTitle" %}</th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
-                {% for user_ in all_users %}
+                {% for tag in all_tags %}
                 <tr>
-                    <td>{{ user_.id }}</td>
-                    <td>{{ user_.username }}</td>
-                    <td>{{ user_.first_name }} {{ user_.last_name }}</td>
-                    <td>{{ user_.date_joined|date:"SHORT_DATE_FORMAT" }} {{ user_.date_joined|time:"H:i" }}</td>
+                    <td>{{ tag.id }}</td>
+                    <td>{{ tag.name }}</td>
+                    <td>{{ tag.creation_date|date:"SHORT_DATE_FORMAT" }} {{ tag.creation_date|time:"H:i" }}</td>
                     <td>
-                        <a href="{% url 'update_user' user_.id %}">{% trans "EditTitle" %}</a>
+                        <a href="{% url 'update_tag' tag.id %}">{% trans "EditTitle" %}</a>
                         <br>
-                        <a href="{% url 'delete_user' user_.id %}">{% trans "DeleteTitle" %}</a>
+                        <a href="{% url 'delete_tag' tag.id %}">{% trans "DeleteTitle" %}</a>
                     </td>
                   </tr>
                 {% endfor %}
