@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-14 21:38+0500\n"
+"POT-Creation-Date: 2022-11-14 21:51+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -57,13 +57,15 @@ msgid "It is not possible to delete the user because he is being used"
 msgstr "Невозможно удалить пользователя, потому что он используется"
 
 #: labels/models.py:7 statuses/models.py:7 tasks/models.py:30
-#: templates/statuses/statuses.html:25 templates/tasks/tasks.html:25
+#: templates/labels/labels.html:25 templates/statuses/statuses.html:25
+#: templates/tasks/tasks.html:25
 msgid "Name"
 msgstr "Имя"
 
 #: labels/models.py:9 statuses/models.py:9 tasks/models.py:51
-#: templates/accounts/users.html:25 templates/statuses/statuses.html:26
-#: templates/tasks/detail_task.html:40 templates/tasks/tasks.html:29
+#: templates/accounts/users.html:25 templates/labels/labels.html:26
+#: templates/statuses/statuses.html:26 templates/tasks/detail_task.html:40
+#: templates/tasks/tasks.html:29
 msgid "Creation date"
 msgstr "Дата создания"
 
@@ -143,12 +145,12 @@ msgstr "Задача успешно удалена"
 msgid "Deleting a user"
 msgstr "Удаление пользователя"
 
-#: templates/accounts/delete_user.html:19
+#: templates/accounts/delete_user.html:19 templates/labels/delete_label.html:19
 #: templates/statuses/delete_status.html:19 templates/tasks/delete_task.html:19
 msgid "Are you sure that you want to delete"
 msgstr "Вы уверены, что хотите удалить"
 
-#: templates/accounts/delete_user.html:25
+#: templates/accounts/delete_user.html:25 templates/labels/delete_label.html:25
 #: templates/statuses/delete_status.html:25 templates/tasks/delete_task.html:25
 msgid "Yes, delete"
 msgstr "Да, удалить"
@@ -168,6 +170,7 @@ msgid "Editing the user"
 msgstr "Изменение пользователя"
 
 #: templates/accounts/update_user.html:24 templates/accounts/users.html:37
+#: templates/labels/labels.html:37 templates/labels/update_label.html:24
 #: templates/statuses/statuses.html:37 templates/statuses/update_status.html:24
 #: templates/tasks/detail_task.html:55 templates/tasks/tasks.html:43
 #: templates/tasks/update_task.html:24
@@ -179,8 +182,8 @@ msgstr "Изменить"
 msgid "Users"
 msgstr "Пользователи"
 
-#: templates/accounts/users.html:22 templates/statuses/statuses.html:24
-#: templates/tasks/tasks.html:24
+#: templates/accounts/users.html:22 templates/labels/labels.html:24
+#: templates/statuses/statuses.html:24 templates/tasks/tasks.html:24
 msgid "ID"
 msgstr "ID"
 
@@ -192,8 +195,9 @@ msgstr "Имя пользователя"
 msgid "Full name"
 msgstr "Полное имя"
 
-#: templates/accounts/users.html:39 templates/statuses/statuses.html:39
-#: templates/tasks/detail_task.html:57 templates/tasks/tasks.html:45
+#: templates/accounts/users.html:39 templates/labels/labels.html:39
+#: templates/statuses/statuses.html:39 templates/tasks/detail_task.html:57
+#: templates/tasks/tasks.html:45
 msgid "Delete"
 msgstr "Удалить"
 
@@ -206,7 +210,8 @@ msgstr "Менеджер задач"
 msgid "Statuses"
 msgstr "Статусы"
 
-#: templates/base.html:29 templates/tasks/detail_task.html:45
+#: templates/base.html:29 templates/labels/labels.html:10
+#: templates/labels/labels.html:17 templates/tasks/detail_task.html:45
 msgid "Labels"
 msgstr "Метки"
 
@@ -224,6 +229,24 @@ msgstr "Выход"
 msgid "Login"
 msgstr "Вход"
 
+#: templates/labels/create_label.html:10 templates/labels/create_label.html:17
+#: templates/labels/labels.html:19
+msgid "Create a label"
+msgstr "Создать метку"
+
+#: templates/labels/create_label.html:24
+#: templates/statuses/create_status.html:24 templates/tasks/create_task.html:24
+msgid "Create"
+msgstr "Создать"
+
+#: templates/labels/delete_label.html:10 templates/labels/delete_label.html:17
+msgid "Deleting a label"
+msgstr "Удаление метки"
+
+#: templates/labels/update_label.html:10 templates/labels/update_label.html:17
+msgid "Editing a label"
+msgstr "Изменение метки"
+
 #: templates/pages/home.html:10
 msgid "Main page"
 msgstr "Главная"
@@ -240,10 +263,6 @@ msgstr "Войти"
 #: templates/statuses/create_status.html:17 templates/statuses/statuses.html:19
 msgid "Create a status"
 msgstr "Создать статус"
-
-#: templates/statuses/create_status.html:24 templates/tasks/create_task.html:24
-msgid "Create"
-msgstr "Создать"
 
 #: templates/statuses/delete_status.html:10
 #: templates/statuses/delete_status.html:17

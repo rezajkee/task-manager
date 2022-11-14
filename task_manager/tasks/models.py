@@ -4,26 +4,9 @@ from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 
 from ..statuses.models import Status
+from ..labels.models import Label
 
 USER_MODEL = get_user_model()
-
-
-# def get_full_name(self):
-#     return f"{self.first_name} {self.last_name}"
-
-
-# # Inject get_full_name method instead of __str__ to User model
-# USER_MODEL.add_to_class("__str__", get_full_name)
-
-
-# class FullNamedUser(USER_MODEL):
-#     """Proxy model for a User model.
-#     Adds fullname __str__ method."""
-#     class Meta:
-#         proxy = True
-
-#     def __str__(self):
-#         return f"{self.first_name} {self.last_name}"
 
 
 class Task(models.Model):
@@ -47,9 +30,15 @@ class Task(models.Model):
         blank=True,
         on_delete=models.PROTECT,
     )
+    labels = models.ManyToManyField(Label, verbose_name=_("Labels"), through="TaskLabels")
     creation_date = models.DateTimeField(
         _("Creation date"), default=timezone.now
     )
 
     def __str__(self):
         return f"{self.name}"
+
+
+class TaskLabels(models.Model):
+    task = models.ForeignKey(Task, on_delete=models.CASCADE)
+    labels = models.ForeignKey(Label, on_delete=models.PROTECT)
