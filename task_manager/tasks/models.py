@@ -27,7 +27,7 @@ USER_MODEL = get_user_model()
 
 
 class Task(models.Model):
-    name = models.CharField(_("Name"), max_length=100)
+    name = models.CharField(_("Name"), unique=True, max_length=100)
     author = models.ForeignKey(
         USER_MODEL,
         verbose_name=_("Author"),
@@ -43,7 +43,6 @@ class Task(models.Model):
     executor = models.ForeignKey(
         USER_MODEL,
         verbose_name=_("Executor"),
-        default="",
         null=True,
         blank=True,
         on_delete=models.PROTECT,
