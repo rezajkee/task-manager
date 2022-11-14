@@ -30,7 +30,7 @@ class Task(models.Model):
         blank=True,
         on_delete=models.PROTECT,
     )
-    labels = models.ManyToManyField(Label, verbose_name=_("Labels"), through="TaskLabels")
+    labels = models.ManyToManyField(Label, verbose_name=_("Labels"), through="TaskLabels", blank=True)
     creation_date = models.DateTimeField(
         _("Creation date"), default=timezone.now
     )

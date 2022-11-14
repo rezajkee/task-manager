@@ -83,8 +83,9 @@ def test_label():
 @pytest.fixture
 def test_task(second_test_user, test_status, test_label):
     test_task = Task.objects.create(
-        name="test", author=second_test_user, status=test_status, labels=test_label
+        name="test", author=second_test_user, status=test_status
     )
+    test_task.labels.add(test_label)
     test_task.save()
     return test_task
 
