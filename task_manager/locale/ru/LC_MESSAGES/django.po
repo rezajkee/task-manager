@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-14 17:56+0500\n"
+"POT-Creation-Date: 2022-11-14 21:38+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -56,20 +56,36 @@ msgstr "Пользователь успешно удалён"
 msgid "It is not possible to delete the user because he is being used"
 msgstr "Невозможно удалить пользователя, потому что он используется"
 
-#: settings.py:133
-msgid "Russian"
-msgstr "Русский"
-
-#: statuses/models.py:7 tasks/models.py:30 templates/statuses/statuses.html:25
-#: templates/tasks/tasks.html:25
+#: labels/models.py:7 statuses/models.py:7 tasks/models.py:30
+#: templates/statuses/statuses.html:25 templates/tasks/tasks.html:25
 msgid "Name"
 msgstr "Имя"
 
-#: statuses/models.py:9 tasks/models.py:52 templates/accounts/users.html:25
-#: templates/statuses/statuses.html:26 templates/tasks/detail_task.html:40
-#: templates/tasks/tasks.html:29
+#: labels/models.py:9 statuses/models.py:9 tasks/models.py:51
+#: templates/accounts/users.html:25 templates/statuses/statuses.html:26
+#: templates/tasks/detail_task.html:40 templates/tasks/tasks.html:29
 msgid "Creation date"
 msgstr "Дата создания"
+
+#: labels/views.py:23
+msgid "The label was created successfully"
+msgstr "Метка успешно создана"
+
+#: labels/views.py:48
+msgid "The label was edited successfully"
+msgstr "Метка успешно изменена"
+
+#: labels/views.py:64
+msgid "The label was deleted successfully"
+msgstr "Метка успешно удалена"
+
+#: labels/views.py:73
+msgid "It is not possible to delete the label because it is being used"
+msgstr "Невозможно удалить метку, потому что она используется"
+
+#: settings.py:134
+msgid "Russian"
+msgstr "Русский"
 
 #: statuses/views.py:23
 msgid "The status was created successfully"

@@ -30,11 +30,11 @@ def test_task_creation(
             "name": "first",
             "author": authenticated_user.id,
             "status": test_status.id,
-            "doer": second_test_user.id,
+            "executor": second_test_user.id,
         },
     )
     assert Task.objects.count() == 1
-    assert Task.objects.get(author=authenticated_user).doer == second_test_user
+    assert Task.objects.get(author=authenticated_user).executor == second_test_user
     assert resp.status_code == 302
 
 

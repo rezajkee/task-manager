@@ -2,6 +2,7 @@ import pytest
 from django.contrib.auth import get_user_model
 from task_manager.statuses.models import Status
 from task_manager.tasks.models import Task
+from task_manager.labels.models import Label
 
 
 @pytest.fixture
@@ -73,9 +74,16 @@ def test_status():
 
 
 @pytest.fixture
-def test_task(second_test_user, test_status):
+def test_label():
+    test_label = Label.objects.create(name="test")
+    test_label.save()
+    return test_label
+
+
+@pytest.fixture
+def test_task(second_test_user, test_status, test_label):
     test_task = Task.objects.create(
-        name="test", author=second_test_user, status=test_status
+        name="test", author=second_test_user, status=test_status, labels=test_label
     )
     test_task.save()
     return test_task

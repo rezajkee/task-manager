@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    {% extends 'base.html' %}
+    {% load i18n %}
+    {% load bootstrap4 %}
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    {% block title %} | {% trans "Deleting a label" %} {% endblock %}
+    {% block content %}
+
+    <div class="container wrapper flex-grow-1">
+
+        {% bootstrap_messages %}
+
+        <h1 class="my-4">{% trans "Deleting a label" %}</h1>
+
+        <p>{% trans "Are you sure that you want to delete" %} {{ object.name }}?</p>
+
+        <form method="post">
+            {% csrf_token %}
+            {% buttons %}
+                <button type="submit" class="btn btn-danger">
+                    {% trans "Yes, delete" %}
+                </button>
+            {% endbuttons %}
+        </form>
+    </div>
+    {% endblock %}
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    {% extends 'base.html' %}
+    {% load i18n %}
+    {% load bootstrap4 %}
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    {% block title %} | {% trans "Editing a label" %} {% endblock %}
+    {% block content %}
+
+    <div class="container wrapper flex-grow-1">
+
+        {% bootstrap_messages %}
+
+        <h1 class="my-4">{% trans "Editing a label" %}</h1>
+
+        <form method="post">
+            {% csrf_token %}
+            {% bootstrap_form form %}
+            {% buttons %}
+                <button type="submit" class="btn btn-primary">
+                    {% trans "Edit" %}
+                </button>
+            {% endbuttons %}
+        </form>
+    </div>
+    {% endblock %}
+</body>
+</html>
