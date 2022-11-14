@@ -1,0 +1,267 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-11-14 15:04+0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
+"%100>=11 && n%100<=14)? 2 : 3);\n"
+#: accounts/forms.py:10
+msgid "FirstNameTitle"
+msgstr ""
+
+#: accounts/forms.py:11
+msgid "LastNameTitle"
+msgstr ""
+
+#: accounts/views.py:18
+msgid "AccountsUserPassesMessage"
+msgstr ""
+
+#: accounts/views.py:26
+msgid "LoginSuccessMessage"
+msgstr ""
+
+#: accounts/views.py:33
+msgid "LogoutSuccessMessage"
+msgstr ""
+
+#: accounts/views.py:44
+msgid "UserCreateSuccessMessage"
+msgstr ""
+
+#: accounts/views.py:70
+msgid "UserUpdateSuccessMessage"
+msgstr ""
+
+#: accounts/views.py:90
+msgid "UserDeleteSuccessMessage"
+msgstr ""
+
+#: accounts/views.py:102
+msgid "UserProtectedMessage"
+msgstr ""
+
+#: settings.py:133
+msgid "Russian"
+msgstr ""
+
+#: statuses/models.py:7 tasks/models.py:30 templates/statuses/statuses.html:25
+#: templates/tasks/tasks.html:25
+msgid "NameTitle"
+msgstr ""
+
+#: statuses/models.py:9 tasks/models.py:52 templates/accounts/users.html:25
+#: templates/statuses/statuses.html:26 templates/tasks/detail_task.html:40
+#: templates/tasks/tasks.html:29
+msgid "CreationDateTitle"
+msgstr ""
+
+#: statuses/views.py:23
+msgid "StatusCreateSuccessMessage"
+msgstr ""
+
+#: statuses/views.py:48
+msgid "StatusUpdateSuccessMessage"
+msgstr ""
+
+#: statuses/views.py:64
+msgid "StatusDeleteSuccessMessage"
+msgstr ""
+
+#: statuses/views.py:73
+msgid "StatusProtectedMessage"
+msgstr ""
+
+#: tasks/models.py:33 templates/tasks/detail_task.html:28
+#: templates/tasks/tasks.html:27
+msgid "AuthorTitle"
+msgstr ""
+
+#: tasks/models.py:39
+msgid "DescriptionTitle"
+msgstr ""
+
+#: tasks/models.py:41 templates/tasks/detail_task.html:36
+#: templates/tasks/tasks.html:26
+msgid "StatusTitle"
+msgstr ""
+
+#: tasks/models.py:45 templates/tasks/detail_task.html:32
+#: templates/tasks/tasks.html:28
+msgid "DoerTitle"
+msgstr ""
+
+#: tasks/views.py:14
+msgid "TasksUserPassesMessage"
+msgstr ""
+
+#: tasks/views.py:28
+msgid "TaskCreateSuccessMessage"
+msgstr ""
+
+#: tasks/views.py:58
+msgid "TaskUpdateSuccessMessage"
+msgstr ""
+
+#: tasks/views.py:73
+msgid "TaskDeleteSuccessMessage"
+msgstr ""
+
+#: templates/accounts/delete_user.html:10
+#: templates/accounts/delete_user.html:17
+msgid "DeleteUserTitle"
+msgstr ""
+
+#: templates/accounts/delete_user.html:19
+msgid "SureDeleteQuestion"
+msgstr ""
+
+#: templates/accounts/delete_user.html:25
+#: templates/statuses/delete_status.html:25 templates/tasks/delete_task.html:25
+msgid "SureDeleteButton"
+msgstr ""
+
+#: templates/accounts/register.html:10 templates/accounts/register.html:17
+#: templates/base.html:50
+msgid "RegisterTitle"
+msgstr ""
+
+#: templates/accounts/register.html:24
+msgid "RegisterButton"
+msgstr ""
+
+#: templates/accounts/update_user.html:10
+#: templates/accounts/update_user.html:17
+msgid "EditUserTitle"
+msgstr ""
+
+#: templates/accounts/update_user.html:24 templates/accounts/users.html:37
+#: templates/statuses/statuses.html:37 templates/statuses/update_status.html:24
+#: templates/tasks/detail_task.html:55 templates/tasks/tasks.html:43
+#: templates/tasks/update_task.html:24
+msgid "EditTitle"
+msgstr ""
+
+#: templates/accounts/users.html:10 templates/accounts/users.html:17
+#: templates/base.html:22
+msgid "UsersTitle"
+msgstr ""
+
+#: templates/accounts/users.html:22 templates/statuses/statuses.html:24
+#: templates/tasks/tasks.html:24
+msgid "IdTitle"
+msgstr ""
+
+#: templates/accounts/users.html:23
+msgid "UsernameTitle"
+msgstr ""
+
+#: templates/accounts/users.html:24
+msgid "FullNameTitle"
+msgstr ""
+
+#: templates/accounts/users.html:39 templates/statuses/statuses.html:39
+#: templates/tasks/detail_task.html:57 templates/tasks/tasks.html:45
+msgid "DeleteTitle"
+msgstr ""
+
+#: templates/base.html:6 templates/base.html:15
+msgid "MainTitle"
+msgstr ""
+
+#: templates/base.html:26 templates/statuses/statuses.html:10
+#: templates/statuses/statuses.html:17
+msgid "StatusesTitle"
+msgstr ""
+
+#: templates/base.html:29 templates/tasks/detail_task.html:45
+msgid "TagsTitle"
+msgstr ""
+
+#: templates/base.html:32 templates/tasks/tasks.html:10
+#: templates/tasks/tasks.html:17
+msgid "TasksTitle"
+msgstr ""
+
+#: templates/base.html:39
+msgid "LogoutTitle"
+msgstr ""
+
+#: templates/base.html:47 templates/pages/login.html:10
+#: templates/pages/login.html:17
+msgid "LoginTitle"
+msgstr ""
+
+#: templates/pages/home.html:10
+msgid "MainPage"
+msgstr ""
+
+#: templates/pages/home.html:19
+msgid "Example"
+msgstr ""
+
+#: templates/pages/login.html:24
+msgid "LoginButton"
+msgstr ""
+
+#: templates/statuses/create_status.html:10
+#: templates/statuses/create_status.html:17 templates/statuses/statuses.html:19
+msgid "CreateStatusTitle"
+msgstr ""
+
+#: templates/statuses/create_status.html:24 templates/tasks/create_task.html:24
+msgid "CreateButton"
+msgstr ""
+
+#: templates/statuses/delete_status.html:10
+#: templates/statuses/delete_status.html:17
+msgid "DeleteStatusTitle"
+msgstr ""
+
+#: templates/statuses/delete_status.html:19
+msgid "SureDeleteStatusQuestion"
+msgstr ""
+
+#: templates/statuses/update_status.html:10
+#: templates/statuses/update_status.html:17
+msgid "EditStatusTitle"
+msgstr ""
+
+#: templates/tasks/create_task.html:10 templates/tasks/create_task.html:17
+#: templates/tasks/tasks.html:19
+msgid "CreateTaskTitle"
+msgstr ""
+
+#: templates/tasks/delete_task.html:10 templates/tasks/delete_task.html:17
+msgid "DeleteTaskTitle"
+msgstr ""
+
+#: templates/tasks/delete_task.html:19
+msgid "SureDeleteTaskQuestion"
+msgstr ""
+
+#: templates/tasks/detail_task.html:10 templates/tasks/detail_task.html:17
+msgid "DetailTaskTitle"
+msgstr ""
+
+#: templates/tasks/update_task.html:10 templates/tasks/update_task.html:17
+msgid "EditTaskTitle"
+msgstr ""
+
+#: utils.py:12
+msgid "LoginRequiredMessage"
+msgstr ""

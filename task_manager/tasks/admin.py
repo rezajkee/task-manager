@@ -9,7 +9,7 @@ class TaskAdmin(admin.ModelAdmin):
         "id",
         "name",
         "author",
-        "doer",
+        "executor",
         "creation_date",
     )
     list_editable = ("name",)
