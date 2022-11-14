@@ -7,23 +7,23 @@
     <meta charset="UTF-8">
 </head>
 <body>
-    {% block title %} | {% trans "StatusesTitle" %} {% endblock %}
+    {% block title %} | {% trans "Statuses" %} {% endblock %}
     {% block content %}
 
     <div class="container wrapper flex-grow-1">
 
         {% bootstrap_messages %}
 
-        <h1 class="my-4">{% trans "StatusesTitle" %}</h1>
+        <h1 class="my-4">{% trans "Statuses" %}</h1>
 
-        <a class="nav-link" href="{% url 'create_status' %}">{% trans "CreateStatusTitle" %}</a>
+        <a class="nav-link" href="{% url 'create_status' %}">{% trans "Create a status" %}</a>
 
         <table class="table table-striped">
             <thead>
               <tr>
-                <th>{% trans "IdTitle" %}</th>
-                <th>{% trans "NameTitle" %}</th>
-                <th>{% trans "CreationDateTitle" %}</th>
+                <th>{% trans "ID" %}</th>
+                <th>{% trans "Name" %}</th>
+                <th>{% trans "Creation date" %}</th>
                 <th></th>
               </tr>
             </thead>
@@ -34,9 +34,9 @@
                     <td>{{ status.name }}</td>
                     <td>{{ status.creation_date|date:"SHORT_DATE_FORMAT" }} {{ status.creation_date|time:"H:i" }}</td>
                     <td>
-                      <a href="{% url 'update_status' status.id %}">{% trans "EditTitle" %}</a>
+                      <a href="{% url 'update_status' status.id %}">{% trans "Edit" %}</a>
                       <br>
-                      <a href="{% url 'delete_status' status.id %}">{% trans "DeleteTitle" %}</a>
+                      <a href="{% url 'delete_status' status.id %}">{% trans "Delete" %}</a>
                     </td>
                   </tr>
                 {% endfor %}

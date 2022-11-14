@@ -20,7 +20,7 @@ class StatusCreateView(
     form_class = StatusCreationForm
     success_url = reverse_lazy("statuses")
     template_name = "statuses/create_status.html"
-    success_message = _("StatusCreateSuccessMessage")
+    success_message = _("The status was created successfully")
 
 
 class StatusListView(CustomLoginRequiredMixin, generic.ListView):
@@ -45,7 +45,7 @@ class StatusUpdateView(
     form_class = StatusCreationForm
     template_name = "statuses/update_status.html"
     success_url = reverse_lazy("statuses")
-    success_message = _("StatusUpdateSuccessMessage")
+    success_message = _("The status was edited successfully")
 
 
 class StatusDeleteView(
@@ -61,7 +61,7 @@ class StatusDeleteView(
     model = Status
     template_name = "statuses/delete_status.html"
     success_url = reverse_lazy("statuses")
-    success_message = _("StatusDeleteSuccessMessage")
+    success_message = _("The status was deleted successfully")
 
     def post(self, request, *args, **kwargs):
         try:
@@ -70,6 +70,6 @@ class StatusDeleteView(
             )
         except ProtectedError:
             messages.add_message(
-                request, messages.ERROR, _("StatusProtectedMessage")
+                request, messages.ERROR, _("It is not possible to delete the status because it is being used")
             )
             return redirect("statuses")

@@ -7,8 +7,8 @@ from django.utils.translation import gettext_lazy as _
 class UserRegistrationForm(UserCreationForm):
     """Set first_name and last_name fields to required."""
 
-    first_name = forms.CharField(label=_("FirstNameTitle"), max_length=50)
-    last_name = forms.CharField(label=_("LastNameTitle"), max_length=50)
+    first_name = forms.CharField(label=_("First name"), max_length=50)
+    last_name = forms.CharField(label=_("Last name"), max_length=50)
 
     class Meta:
         model = User

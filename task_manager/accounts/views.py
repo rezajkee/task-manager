@@ -15,7 +15,7 @@ from .forms import UserRegistrationForm
 class AccountsUserPassesTestMixin(CustomUserPassesTestMixin):
     """Override mixin's attributes for a accounts views."""
 
-    permission_denied_message = _("AccountsUserPassesMessage")
+    permission_denied_message = _("You have no rights to change another user.")
     redirect_url = "users"
 
 
@@ -23,14 +23,14 @@ class CustomLoginView(SuccessMessageMixin, LoginView):
     """Change template path, add success message after authentication."""
 
     template_name = "pages/login.html"
-    success_message = _("LoginSuccessMessage")
+    success_message = _("You are logged in")
 
 
 class CustomLogoutView(LogoutView):
     """Override dispatch method to add success message after logout."""
 
     def dispatch(self, request, *args, **kwargs):
-        messages.add_message(request, messages.INFO, _("LogoutSuccessMessage"))
+        messages.add_message(request, messages.INFO, _("You are logged out"))
         return super(CustomLogoutView, self).dispatch(request, *args, **kwargs)
 
 
@@ -41,7 +41,7 @@ class UserCreateView(SuccessMessageMixin, generic.CreateView):
     form_class = UserRegistrationForm
     success_url = reverse_lazy("login")
     template_name = "accounts/register.html"
-    success_message = _("UserCreateSuccessMessage")
+    success_message = _("The user has been registered successfully")
 
 
 class UserListView(generic.ListView):
@@ -67,7 +67,7 @@ class UserUpdateView(
     form_class = UserRegistrationForm
     template_name = "accounts/update_user.html"
     success_url = reverse_lazy("users")
-    success_message = _("UserUpdateSuccessMessage")
+    success_message = _("The user has been edited successfully")
 
     def test_func(self):
         return self.request.user.id == self.kwargs["pk"]
@@ -87,7 +87,7 @@ class UserDeleteView(
     model = User
     template_name = "accounts/delete_user.html"
     success_url = reverse_lazy("users")
-    success_message = _("UserDeleteSuccessMessage")
+    success_message = _("The user has been deleted successfully")
 
     def test_func(self):
         return self.request.user.id == self.kwargs["pk"]
@@ -99,6 +99,6 @@ class UserDeleteView(
             )
         except ProtectedError:
             messages.add_message(
-                request, messages.ERROR, _("UserProtectedMessage")
+                request, messages.ERROR, _("It is not possible to delete the user because he is being used")
             )
             return redirect("users")

@@ -11,7 +11,7 @@ from .models import Task
 class TasksUserPassesTestMixin(CustomUserPassesTestMixin):
     """Override mixin attributes for a tasks views."""
 
-    permission_denied_message = _("TasksUserPassesMessage")
+    permission_denied_message = _("The task can only be deleted by its author")
     redirect_url = "tasks"
 
 
@@ -25,7 +25,7 @@ class TaskCreateView(
     form_class = TaskCreationForm
     success_url = reverse_lazy("tasks")
     template_name = "tasks/create_task.html"
-    success_message = _("TaskCreateSuccessMessage")
+    success_message = _("The task was created successfully")
 
     def form_valid(self, form):
         # Add logged-in user as the author
@@ -55,7 +55,7 @@ class TaskUpdateView(
     form_class = TaskCreationForm
     template_name = "tasks/update_task.html"
     success_url = reverse_lazy("tasks")
-    success_message = _("TaskUpdateSuccessMessage")
+    success_message = _("The task was edited successfully")
 
 
 class TaskDeleteView(
@@ -70,7 +70,7 @@ class TaskDeleteView(
     model = Task
     template_name = "tasks/delete_task.html"
     success_url = reverse_lazy("tasks")
-    success_message = _("TaskDeleteSuccessMessage")
+    success_message = _("The task was deleted successfully")
 
     def test_func(self):
         return self.request.user.id == self.kwargs["pk"]

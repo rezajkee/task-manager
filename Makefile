@@ -58,7 +58,7 @@ exportreq:
 .PHONY: makemessages
 makemessages:
 	cd task_manager/ ;\
-	poetry run django-admin makemessages -l ru_RU ;\
+	poetry run django-admin makemessages -l ru ;\
 	cd ..
 
 .PHONY: compilemessages

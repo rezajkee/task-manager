@@ -3,7 +3,7 @@
     {% load i18n %}
 <head>
     <meta charset="UTF-8">
-    <title>{% trans "MainTitle" %} {% block title %} {% endblock %}</title>
+    <title>{% trans "Task manager" %} {% block title %} {% endblock %}</title>
 </head>
 <body>
     {% load bootstrap4 %}
@@ -12,31 +12,31 @@
     {% bootstrap_javascript jquery='full' %}
 
     <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
-        <a class="navbar-brand" href="{% url 'home' %}">{% trans "MainTitle" %}</a>
+        <a class="navbar-brand" href="{% url 'home' %}">{% trans "Task manager" %}</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'users' %}">{% trans "UsersTitle" %}</a>
+                    <a class="nav-link" href="{% url 'users' %}">{% trans "Users" %}</a>
                 </li>
                 {% if user.is_authenticated %}
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'statuses' %}">{% trans "StatusesTitle" %}</a>
+                        <a class="nav-link" href="{% url 'statuses' %}">{% trans "Statuses" %}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">{% trans "TagsTitle" %}</a>
+                        <a class="nav-link" href="#">{% trans "Labels" %}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'tasks' %}">{% trans "TasksTitle" %}</a>
+                        <a class="nav-link" href="{% url 'tasks' %}">{% trans "Tasks" %}</a>
                     </li>
                 {% endif %}
             </ul>
             <ul class="navbar-nav">
                 {% if user.is_authenticated %}
                     <li class="nav-item">
-                        <a class="nav-link" href="javascript:{document.getElementById('logout').submit()}">{% trans "LogoutTitle" %}</a>
+                        <a class="nav-link" href="javascript:{document.getElementById('logout').submit()}">{% trans "Logout" %}</a>
                         <form action="{% url 'logout' %}" id="logout" method="post">
                             {% csrf_token %}
                             <input type="hidden">
@@ -44,10 +44,10 @@
                     </li>
                 {% else %}
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'login' %}">{% trans "LoginTitle" %}</a>
+                        <a class="nav-link" href="{% url 'login' %}">{% trans "Login" %}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'register' %}">{% trans "RegisterTitle" %}</a>
+                        <a class="nav-link" href="{% url 'register' %}">{% trans "Registration" %}</a>
                     </li>
                 {% endif %}
             </ul>

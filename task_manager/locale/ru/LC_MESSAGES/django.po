@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-14 15:04+0500\n"
+"POT-Creation-Date: 2022-11-14 17:56+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,249 +19,243 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
 "%100>=11 && n%100<=14)? 2 : 3);\n"
+
 #: accounts/forms.py:10
-msgid "FirstNameTitle"
-msgstr ""
+msgid "First name"
+msgstr "Имя"
 
 #: accounts/forms.py:11
-msgid "LastNameTitle"
-msgstr ""
+msgid "Last name"
+msgstr "Фамилия"
 
 #: accounts/views.py:18
-msgid "AccountsUserPassesMessage"
-msgstr ""
+msgid "You have no rights to change another user."
+msgstr "У вас нет прав для изменения другого пользователя."
 
 #: accounts/views.py:26
-msgid "LoginSuccessMessage"
-msgstr ""
+msgid "You are logged in"
+msgstr "Вы залогинены"
 
 #: accounts/views.py:33
-msgid "LogoutSuccessMessage"
-msgstr ""
+msgid "You are logged out"
+msgstr "Вы разлогинены"
 
 #: accounts/views.py:44
-msgid "UserCreateSuccessMessage"
-msgstr ""
+msgid "The user has been registered successfully"
+msgstr "Пользователь успешно зарегистрирован"
 
 #: accounts/views.py:70
-msgid "UserUpdateSuccessMessage"
-msgstr ""
+msgid "The user has been edited successfully"
+msgstr "Пользователь успешно изменён"
 
 #: accounts/views.py:90
-msgid "UserDeleteSuccessMessage"
-msgstr ""
+msgid "The user has been deleted successfully"
+msgstr "Пользователь успешно удалён"
 
 #: accounts/views.py:102
-msgid "UserProtectedMessage"
-msgstr ""
+msgid "It is not possible to delete the user because he is being used"
+msgstr "Невозможно удалить пользователя, потому что он используется"
 
 #: settings.py:133
 msgid "Russian"
-msgstr ""
+msgstr "Русский"
 
 #: statuses/models.py:7 tasks/models.py:30 templates/statuses/statuses.html:25
 #: templates/tasks/tasks.html:25
-msgid "NameTitle"
-msgstr ""
+msgid "Name"
+msgstr "Имя"
 
 #: statuses/models.py:9 tasks/models.py:52 templates/accounts/users.html:25
 #: templates/statuses/statuses.html:26 templates/tasks/detail_task.html:40
 #: templates/tasks/tasks.html:29
-msgid "CreationDateTitle"
-msgstr ""
+msgid "Creation date"
+msgstr "Дата создания"
 
 #: statuses/views.py:23
-msgid "StatusCreateSuccessMessage"
-msgstr ""
+msgid "The status was created successfully"
+msgstr "Статус успешно создан"
 
 #: statuses/views.py:48
-msgid "StatusUpdateSuccessMessage"
-msgstr ""
+msgid "The status was edited successfully"
+msgstr "Статус успешно изменён"
 
 #: statuses/views.py:64
-msgid "StatusDeleteSuccessMessage"
-msgstr ""
+msgid "The status was deleted successfully"
+msgstr "Статус успешно удалён"
 
 #: statuses/views.py:73
-msgid "StatusProtectedMessage"
-msgstr ""
+msgid "It is not possible to delete the status because it is being used"
+msgstr "Невозможно удалить статус, потому что он используется"
 
 #: tasks/models.py:33 templates/tasks/detail_task.html:28
 #: templates/tasks/tasks.html:27
-msgid "AuthorTitle"
-msgstr ""
+msgid "Author"
+msgstr "Автор"
 
 #: tasks/models.py:39
-msgid "DescriptionTitle"
-msgstr ""
+msgid "Description"
+msgstr "Описание"
 
 #: tasks/models.py:41 templates/tasks/detail_task.html:36
 #: templates/tasks/tasks.html:26
-msgid "StatusTitle"
-msgstr ""
+msgid "Status"
+msgstr "Статус"
 
 #: tasks/models.py:45 templates/tasks/detail_task.html:32
 #: templates/tasks/tasks.html:28
-msgid "DoerTitle"
-msgstr ""
+msgid "Executor"
+msgstr "Исполнитель"
 
 #: tasks/views.py:14
-msgid "TasksUserPassesMessage"
-msgstr ""
+msgid "The task can only be deleted by its author"
+msgstr "Задачу может удалить только её автор"
 
 #: tasks/views.py:28
-msgid "TaskCreateSuccessMessage"
-msgstr ""
+msgid "The task was created successfully"
+msgstr "Задача успешно создана"
 
 #: tasks/views.py:58
-msgid "TaskUpdateSuccessMessage"
-msgstr ""
+msgid "The task was edited successfully"
+msgstr "Задача успешно изменена"
 
 #: tasks/views.py:73
-msgid "TaskDeleteSuccessMessage"
-msgstr ""
+msgid "The task was deleted successfully"
+msgstr "Задача успешно удалена"
 
 #: templates/accounts/delete_user.html:10
 #: templates/accounts/delete_user.html:17
-msgid "DeleteUserTitle"
-msgstr ""
+msgid "Deleting a user"
+msgstr "Удаление пользователя"
 
 #: templates/accounts/delete_user.html:19
-msgid "SureDeleteQuestion"
-msgstr ""
+#: templates/statuses/delete_status.html:19 templates/tasks/delete_task.html:19
+msgid "Are you sure that you want to delete"
+msgstr "Вы уверены, что хотите удалить"
 
 #: templates/accounts/delete_user.html:25
 #: templates/statuses/delete_status.html:25 templates/tasks/delete_task.html:25
-msgid "SureDeleteButton"
-msgstr ""
+msgid "Yes, delete"
+msgstr "Да, удалить"
 
 #: templates/accounts/register.html:10 templates/accounts/register.html:17
 #: templates/base.html:50
-msgid "RegisterTitle"
-msgstr ""
+msgid "Registration"
+msgstr "Регистрация"
 
 #: templates/accounts/register.html:24
-msgid "RegisterButton"
-msgstr ""
+msgid "Register"
+msgstr "Зарегистрировать"
 
 #: templates/accounts/update_user.html:10
 #: templates/accounts/update_user.html:17
-msgid "EditUserTitle"
-msgstr ""
+msgid "Editing the user"
+msgstr "Изменение пользователя"
 
 #: templates/accounts/update_user.html:24 templates/accounts/users.html:37
 #: templates/statuses/statuses.html:37 templates/statuses/update_status.html:24
 #: templates/tasks/detail_task.html:55 templates/tasks/tasks.html:43
 #: templates/tasks/update_task.html:24
-msgid "EditTitle"
-msgstr ""
+msgid "Edit"
+msgstr "Изменить"
 
 #: templates/accounts/users.html:10 templates/accounts/users.html:17
 #: templates/base.html:22
-msgid "UsersTitle"
-msgstr ""
+msgid "Users"
+msgstr "Пользователи"
 
 #: templates/accounts/users.html:22 templates/statuses/statuses.html:24
 #: templates/tasks/tasks.html:24
-msgid "IdTitle"
-msgstr ""
+msgid "ID"
+msgstr "ID"
 
 #: templates/accounts/users.html:23
-msgid "UsernameTitle"
-msgstr ""
+msgid "Username"
+msgstr "Имя пользователя"
 
 #: templates/accounts/users.html:24
-msgid "FullNameTitle"
-msgstr ""
+msgid "Full name"
+msgstr "Полное имя"
 
 #: templates/accounts/users.html:39 templates/statuses/statuses.html:39
 #: templates/tasks/detail_task.html:57 templates/tasks/tasks.html:45
-msgid "DeleteTitle"
-msgstr ""
+msgid "Delete"
+msgstr "Удалить"
 
 #: templates/base.html:6 templates/base.html:15
-msgid "MainTitle"
-msgstr ""
+msgid "Task manager"
+msgstr "Менеджер задач"
 
 #: templates/base.html:26 templates/statuses/statuses.html:10
 #: templates/statuses/statuses.html:17
-msgid "StatusesTitle"
-msgstr ""
+msgid "Statuses"
+msgstr "Статусы"
 
 #: templates/base.html:29 templates/tasks/detail_task.html:45
-msgid "TagsTitle"
-msgstr ""
+msgid "Labels"
+msgstr "Метки"
 
 #: templates/base.html:32 templates/tasks/tasks.html:10
 #: templates/tasks/tasks.html:17
-msgid "TasksTitle"
-msgstr ""
+msgid "Tasks"
+msgstr "Задачи"
 
 #: templates/base.html:39
-msgid "LogoutTitle"
-msgstr ""
+msgid "Logout"
+msgstr "Выход"
 
 #: templates/base.html:47 templates/pages/login.html:10
 #: templates/pages/login.html:17
-msgid "LoginTitle"
-msgstr ""
+msgid "Login"
+msgstr "Вход"
 
 #: templates/pages/home.html:10
-msgid "MainPage"
-msgstr ""
+msgid "Main page"
+msgstr "Главная"
 
 #: templates/pages/home.html:19
 msgid "Example"
-msgstr ""
+msgstr "Пример"
 
 #: templates/pages/login.html:24
-msgid "LoginButton"
-msgstr ""
+msgid "Enter"
+msgstr "Войти"
 
 #: templates/statuses/create_status.html:10
 #: templates/statuses/create_status.html:17 templates/statuses/statuses.html:19
-msgid "CreateStatusTitle"
-msgstr ""
+msgid "Create a status"
+msgstr "Создать статус"
 
 #: templates/statuses/create_status.html:24 templates/tasks/create_task.html:24
-msgid "CreateButton"
-msgstr ""
+msgid "Create"
+msgstr "Создать"
 
 #: templates/statuses/delete_status.html:10
 #: templates/statuses/delete_status.html:17
-msgid "DeleteStatusTitle"
-msgstr ""
-
-#: templates/statuses/delete_status.html:19
-msgid "SureDeleteStatusQuestion"
-msgstr ""
+msgid "Deleting a status"
+msgstr "Удаление статуса"
 
 #: templates/statuses/update_status.html:10
 #: templates/statuses/update_status.html:17
-msgid "EditStatusTitle"
-msgstr ""
+msgid "Editing a status"
+msgstr "Изменение статуса"
 
 #: templates/tasks/create_task.html:10 templates/tasks/create_task.html:17
 #: templates/tasks/tasks.html:19
-msgid "CreateTaskTitle"
-msgstr ""
+msgid "Create a task"
+msgstr "Создать задачу"
 
 #: templates/tasks/delete_task.html:10 templates/tasks/delete_task.html:17
-msgid "DeleteTaskTitle"
-msgstr ""
-
-#: templates/tasks/delete_task.html:19
-msgid "SureDeleteTaskQuestion"
-msgstr ""
+msgid "Deleting a task"
+msgstr "Удаление задачи"
 
 #: templates/tasks/detail_task.html:10 templates/tasks/detail_task.html:17
-msgid "DetailTaskTitle"
-msgstr ""
+msgid "Viewing a task"
+msgstr "Просмотр задачи"
 
 #: templates/tasks/update_task.html:10 templates/tasks/update_task.html:17
-msgid "EditTaskTitle"
-msgstr ""
+msgid "Editing a task"
+msgstr "Изменение задачи"
 
 #: utils.py:12
-msgid "LoginRequiredMessage"
-msgstr ""
+msgid "You are not logged in! Please log in."
+msgstr "Вы не авторизованы! Пожалуйста, выполните вход."

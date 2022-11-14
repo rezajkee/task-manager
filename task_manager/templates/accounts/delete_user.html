@@ -7,22 +7,22 @@
     <meta charset="UTF-8">
 </head>
 <body>
-    {% block title %} | {% trans "DeleteUserTitle" %} {% endblock %}
+    {% block title %} | {% trans "Deleting a user" %} {% endblock %}
     {% block content %}
 
     <div class="container wrapper flex-grow-1">
 
         {% bootstrap_messages %}
 
-        <h1 class="my-4">{% trans "DeleteUserTitle" %}</h1>
+        <h1 class="my-4">{% trans "Deleting a user" %}</h1>
 
-        <p>{% trans "SureDeleteQuestion" %} {{ object.first_name }} {{ object.last_name }}?</p>
+        <p>{% trans "Are you sure that you want to delete" %} {{ object }}?</p>
 
         <form method="post">
             {% csrf_token %}
             {% buttons %}
                 <button type="submit" class="btn btn-danger">
-                    {% trans "SureDeleteButton" %}
+                    {% trans "Yes, delete" %}
                 </button>
             {% endbuttons %}
         </form>

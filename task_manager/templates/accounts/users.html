@@ -7,22 +7,22 @@
     <meta charset="UTF-8">
 </head>
 <body>
-    {% block title %} | {% trans "UsersTitle" %} {% endblock %}
+    {% block title %} | {% trans "Users" %} {% endblock %}
     {% block content %}
 
     <div class="container wrapper flex-grow-1">
 
         {% bootstrap_messages %}
 
-        <h1 class="my-4">{% trans "UsersTitle" %}</h1>
+        <h1 class="my-4">{% trans "Users" %}</h1>
 
         <table class="table table-striped">
             <thead>
               <tr>
-                <th>{% trans "IdTitle" %}</th>
-                <th>{% trans "UsernameTitle" %}</th>
-                <th>{% trans "FullNameTitle" %}</th>
-                <th>{% trans "CreationDateTitle" %}</th>
+                <th>{% trans "ID" %}</th>
+                <th>{% trans "Username" %}</th>
+                <th>{% trans "Full name" %}</th>
+                <th>{% trans "Creation date" %}</th>
                 <th></th>
               </tr>
             </thead>
@@ -34,9 +34,9 @@
                     <td>{{ user_.first_name }} {{ user_.last_name }}</td>
                     <td>{{ user_.date_joined|date:"SHORT_DATE_FORMAT" }} {{ user_.date_joined|time:"H:i" }}</td>
                     <td>
-                      <a href="{% url 'update_user' user_.id %}">{% trans "EditTitle" %}</a>
+                      <a href="{% url 'update_user' user_.id %}">{% trans "Edit" %}</a>
                       <br>
-                      <a href="{% url 'delete_user' user_.id %}">{% trans "DeleteTitle" %}</a>
+                      <a href="{% url 'delete_user' user_.id %}">{% trans "Delete" %}</a>
                     </td>
                   </tr>
                 {% endfor %}

@@ -7,21 +7,21 @@
     <meta charset="UTF-8">
 </head>
 <body>
-    {% block title %} | {% trans "CreateTaskTitle" %} {% endblock %}
+    {% block title %} | {% trans "Create a task" %} {% endblock %}
     {% block content %}
 
     <div class="container wrapper flex-grow-1">
 
         {% bootstrap_messages %}
 
-        <h1 class="my-4">{% trans "CreateTaskTitle" %}</h1>
+        <h1 class="my-4">{% trans "Create a task" %}</h1>
 
         <form method="post">
             {% csrf_token %}
             {% bootstrap_form form %}
             {% buttons %}
                 <button type="submit" class="btn btn-primary">
-                    {% trans "CreateButton" %}
+                    {% trans "Create" %}
                 </button>
             {% endbuttons %}
         </form>

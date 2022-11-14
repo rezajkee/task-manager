@@ -9,7 +9,7 @@ class CustomLoginRequiredMixin(LoginRequiredMixin):
     messages framework by setting the 'login_required_message'
     attribute."""
 
-    login_required_message = _("LoginRequiredMessage")
+    login_required_message = _("You are not logged in! Please log in.")
     redirect_field_name = None
 
     def dispatch(self, request, *args, **kwargs):

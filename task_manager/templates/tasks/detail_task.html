@@ -7,14 +7,14 @@
     <meta charset="UTF-8">
 </head>
 <body>
-    {% block title %} | {% trans "DetailTaskTitle" %} {% endblock %}
+    {% block title %} | {% trans "Viewing a task" %} {% endblock %}
     {% block content %}
 
     <div class="container wrapper flex-grow-1">
 
         {% bootstrap_messages %}
 
-        <h1 class="my-4">{% trans "DetailTaskTitle" %}</h1>
+        <h1 class="my-4">{% trans "Viewing a task" %}</h1>
 
         <div class="card">
             <div class="card-header bg-secondary text-white">
@@ -25,36 +25,36 @@
                 <hr>
                 <div class="container">
                     <div class="row p-1">
-                        <div class="col">{% trans "AuthorTitle" %}</div>
+                        <div class="col">{% trans "Author" %}</div>
                         <div class="col">{{ object.author }}</div>
                     </div>
                     <div class="row p-1">
-                        <div class="col">{% trans "DoerTitle" %}</div>
-                        <div class="col">{{ object.doer }}</div>
+                        <div class="col">{% trans "Executor" %}</div>
+                        <div class="col">{{ object.executor|default_if_none:"" }}</div>
                     </div>
                     <div class="row p-1">
-                        <div class="col">{% trans "StatusTitle" %}</div>
+                        <div class="col">{% trans "Status" %}</div>
                         <div class="col">{{ object.status }}</div>
                     </div>
                     <div class="row p-1">
-                        <div class="col">{% trans "CreationDateTitle" %}</div>
+                        <div class="col">{% trans "Creation date" %}</div>
                         <div class="col">{{ task.creation_date|date:"SHORT_DATE_FORMAT" }} {{ task.creation_date|time:"H:i" }}</div>
                     </div>
                     <div class="row p-1">
                         <div class="col">
-                            <h6>{% trans "TagsTitle" %}:</h6>
+                            <h6>{% trans "Labels" %}:</h6>
                             <ul>
-                            
-                                <li>example</li>
-                            
+                                {% for label in object.labels.all %}
+                                    <li>{{ tag }}</li>
+                                {% endfor %}
                             </ul>
                         </div>
                     </div>
                     <div class="row p-1">
                         <div class="col">
-                            <a href="{% url 'update_task' task.id %}">{% trans "EditTitle" %}</a>
+                            <a href="{% url 'update_task' task.id %}">{% trans "Edit" %}</a>
                             <br>
-                            <a href="{% url 'delete_task' task.id %}">{% trans "DeleteTitle" %}</a>
+                            <a href="{% url 'delete_task' task.id %}">{% trans "Delete" %}</a>
                         </div>
                     </div>
                 </div>
