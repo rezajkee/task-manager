@@ -18,6 +18,11 @@
 
         <a class="nav-link" href="{% url 'create_task' %}">{% trans "Create a task" %}</a>
 
+        <form method="get" action="">
+            {{ filter.form.as_p }}
+            <input type="submit" />
+        </form>
+
         <table class="table table-striped">
             <thead>
                 <tr>

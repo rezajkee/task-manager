@@ -6,6 +6,7 @@ from django.views import generic
 from ..utils import CustomLoginRequiredMixin, CustomUserPassesTestMixin
 from .forms import TaskCreationForm
 from .models import Task
+from .filters import TaskFilter
 
 
 class TasksUserPassesTestMixin(CustomUserPassesTestMixin):
@@ -41,6 +42,18 @@ class TaskListView(CustomLoginRequiredMixin, generic.ListView):
     context_object_name = "all_tasks"
     ordering = ["creation_date"]
     template_name = "tasks/tasks.html"
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        filter = TaskFilter(self.request.GET, queryset)
+        return filter.qs
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        queryset = self.get_queryset()
+        filter = TaskFilter(self.request.GET, queryset)
+        context["filter"] = filter
+        return context
 
 
 class TaskUpdateView(
