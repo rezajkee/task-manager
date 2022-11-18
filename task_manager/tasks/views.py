@@ -2,6 +2,7 @@ from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse_lazy
 from django.utils.translation import gettext_lazy as _
 from django.views import generic
+from django_filters.views import FilterView
 
 from ..utils import CustomLoginRequiredMixin, CustomUserPassesTestMixin
 from .forms import TaskCreationForm
@@ -34,26 +35,16 @@ class TaskCreateView(
         return super(TaskCreateView, self).form_valid(form)
 
 
-class TaskListView(CustomLoginRequiredMixin, generic.ListView):
-    """Rendering a list of all existing tasks only by a logged-in user."""
+class TaskListView(CustomLoginRequiredMixin, FilterView):
+    """Rendering a list of all existing tasks only by a logged-in user.
+    With adding a custom filtering by a FilterView and TaskFilter."""
 
     model = Task
     fields = ("id", "name", "creation_date")
     context_object_name = "all_tasks"
     ordering = ["creation_date"]
     template_name = "tasks/tasks.html"
-
-    def get_queryset(self):
-        queryset = super().get_queryset()
-        filter = TaskFilter(self.request.GET, queryset)
-        return filter.qs
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        queryset = self.get_queryset()
-        filter = TaskFilter(self.request.GET, queryset)
-        context["filter"] = filter
-        return context
+    filterset_class = TaskFilter
 
 
 class TaskUpdateView(
