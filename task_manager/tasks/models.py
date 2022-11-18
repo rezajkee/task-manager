@@ -3,8 +3,8 @@ from django.db import models
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 
-from ..statuses.models import Status
 from ..labels.models import Label
+from ..statuses.models import Status
 
 USER_MODEL = get_user_model()
 
@@ -30,7 +30,9 @@ class Task(models.Model):
         blank=True,
         on_delete=models.PROTECT,
     )
-    labels = models.ManyToManyField(Label, verbose_name=_("Labels"), through="TaskLabels", blank=True)
+    labels = models.ManyToManyField(
+        Label, verbose_name=_("Labels"), through="TaskLabels", blank=True
+    )
     creation_date = models.DateTimeField(
         _("Creation date"), default=timezone.now
     )

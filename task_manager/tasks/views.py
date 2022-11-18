@@ -5,9 +5,9 @@ from django.views import generic
 from django_filters.views import FilterView
 
 from ..utils import CustomLoginRequiredMixin, CustomUserPassesTestMixin
+from .filters import TaskFilter
 from .forms import TaskCreationForm
 from .models import Task
-from .filters import TaskFilter
 
 
 class TasksUserPassesTestMixin(CustomUserPassesTestMixin):

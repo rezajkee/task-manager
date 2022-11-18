@@ -70,6 +70,11 @@ class StatusDeleteView(
             )
         except ProtectedError:
             messages.add_message(
-                request, messages.ERROR, _("It is not possible to delete the status because it is being used")
+                request,
+                messages.ERROR,
+                _(
+                    """It is not possible to delete the
+                    status because it is being used"""
+                ),
             )
             return redirect("statuses")

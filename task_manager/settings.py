@@ -11,15 +11,13 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 
+from pathlib import Path
+
 import dj_database_url
 from django.contrib.messages import constants
 from django.urls import reverse_lazy
 from django.utils.translation import gettext_lazy as _
-
-import dj_database_url
 from dotenv import load_dotenv
-from pathlib import Path
-
 
 load_dotenv()  # take environment variables from .env
 
@@ -132,8 +130,8 @@ AUTH_PASSWORD_VALIDATORS = [
 LANGUAGE_CODE = "ru"
 
 LANGUAGES = (
-    ('ru', _('Russian')),
-    ('en', 'English'),
+    ("ru", _("Russian")),
+    ("en", "English"),
 )
 
 TIME_ZONE = "UTC"

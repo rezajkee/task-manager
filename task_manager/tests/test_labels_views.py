@@ -72,9 +72,7 @@ def test_label_delete_no_login(client, test_label):
 @pytest.mark.django_db
 def test_label_in_task_delete(client, test_task, authenticated_user):
     test_label = test_task.labels.all()[0]
-    delete_url = urls.reverse(
-        "delete_label", kwargs={"pk": test_label.id}
-    )
+    delete_url = urls.reverse("delete_label", kwargs={"pk": test_label.id})
     resp = client.post(delete_url)
     assert resp.status_code == 302
     assert resp.url == urls.reverse("labels")

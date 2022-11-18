@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-14 21:51+0500\n"
+"POT-Creation-Date: 2022-11-18 16:41+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -52,20 +52,22 @@ msgstr "Пользователь успешно изменён"
 msgid "The user has been deleted successfully"
 msgstr "Пользователь успешно удалён"
 
-#: accounts/views.py:102
-msgid "It is not possible to delete the user because he is being used"
+#: accounts/views.py:105
+msgid ""
+"It is not possible to delete the\n"
+"                    user because he is being used"
 msgstr "Невозможно удалить пользователя, потому что он используется"
 
-#: labels/models.py:7 statuses/models.py:7 tasks/models.py:30
+#: labels/models.py:7 statuses/models.py:7 tasks/models.py:13
 #: templates/labels/labels.html:25 templates/statuses/statuses.html:25
-#: templates/tasks/tasks.html:25
+#: templates/tasks/tasks.html:41
 msgid "Name"
 msgstr "Имя"
 
-#: labels/models.py:9 statuses/models.py:9 tasks/models.py:51
+#: labels/models.py:9 statuses/models.py:9 tasks/models.py:37
 #: templates/accounts/users.html:25 templates/labels/labels.html:26
 #: templates/statuses/statuses.html:26 templates/tasks/detail_task.html:40
-#: templates/tasks/tasks.html:29
+#: templates/tasks/tasks.html:45
 msgid "Creation date"
 msgstr "Дата создания"
 
@@ -81,11 +83,13 @@ msgstr "Метка успешно изменена"
 msgid "The label was deleted successfully"
 msgstr "Метка успешно удалена"
 
-#: labels/views.py:73
-msgid "It is not possible to delete the label because it is being used"
+#: labels/views.py:76
+msgid ""
+"It is not possible to delete the\n"
+"                    label because it is being used"
 msgstr "Невозможно удалить метку, потому что она используется"
 
-#: settings.py:134
+#: settings.py:133
 msgid "Russian"
 msgstr "Русский"
 
@@ -101,42 +105,57 @@ msgstr "Статус успешно изменён"
 msgid "The status was deleted successfully"
 msgstr "Статус успешно удалён"
 
-#: statuses/views.py:73
-msgid "It is not possible to delete the status because it is being used"
+#: statuses/views.py:76
+msgid ""
+"It is not possible to delete the\n"
+"                    status because it is being used"
 msgstr "Невозможно удалить статус, потому что он используется"
 
-#: tasks/models.py:33 templates/tasks/detail_task.html:28
-#: templates/tasks/tasks.html:27
+#: tasks/filters.py:12
+msgid "Label"
+msgstr "Метка"
+
+#: tasks/filters.py:17
+msgid "Your own tasks only"
+msgstr "Только свои задачи"
+
+#: tasks/models.py:16 templates/tasks/detail_task.html:28
+#: templates/tasks/tasks.html:43
 msgid "Author"
 msgstr "Автор"
 
-#: tasks/models.py:39
+#: tasks/models.py:22
 msgid "Description"
 msgstr "Описание"
 
-#: tasks/models.py:41 templates/tasks/detail_task.html:36
-#: templates/tasks/tasks.html:26
+#: tasks/models.py:24 templates/tasks/detail_task.html:36
+#: templates/tasks/tasks.html:42
 msgid "Status"
 msgstr "Статус"
 
-#: tasks/models.py:45 templates/tasks/detail_task.html:32
-#: templates/tasks/tasks.html:28
+#: tasks/models.py:28 templates/tasks/detail_task.html:32
+#: templates/tasks/tasks.html:44
 msgid "Executor"
 msgstr "Исполнитель"
 
-#: tasks/views.py:14
+#: tasks/models.py:34 templates/base.html:29 templates/labels/labels.html:10
+#: templates/labels/labels.html:17 templates/tasks/detail_task.html:45
+msgid "Labels"
+msgstr "Метки"
+
+#: tasks/views.py:16
 msgid "The task can only be deleted by its author"
 msgstr "Задачу может удалить только её автор"
 
-#: tasks/views.py:28
+#: tasks/views.py:30
 msgid "The task was created successfully"
 msgstr "Задача успешно создана"
 
-#: tasks/views.py:58
+#: tasks/views.py:62
 msgid "The task was edited successfully"
 msgstr "Задача успешно изменена"
 
-#: tasks/views.py:73
+#: tasks/views.py:77
 msgid "The task was deleted successfully"
 msgstr "Задача успешно удалена"
 
@@ -172,7 +191,7 @@ msgstr "Изменение пользователя"
 #: templates/accounts/update_user.html:24 templates/accounts/users.html:37
 #: templates/labels/labels.html:37 templates/labels/update_label.html:24
 #: templates/statuses/statuses.html:37 templates/statuses/update_status.html:24
-#: templates/tasks/detail_task.html:55 templates/tasks/tasks.html:43
+#: templates/tasks/detail_task.html:55 templates/tasks/tasks.html:59
 #: templates/tasks/update_task.html:24
 msgid "Edit"
 msgstr "Изменить"
@@ -183,7 +202,7 @@ msgid "Users"
 msgstr "Пользователи"
 
 #: templates/accounts/users.html:22 templates/labels/labels.html:24
-#: templates/statuses/statuses.html:24 templates/tasks/tasks.html:24
+#: templates/statuses/statuses.html:24 templates/tasks/tasks.html:40
 msgid "ID"
 msgstr "ID"
 
@@ -197,7 +216,7 @@ msgstr "Полное имя"
 
 #: templates/accounts/users.html:39 templates/labels/labels.html:39
 #: templates/statuses/statuses.html:39 templates/tasks/detail_task.html:57
-#: templates/tasks/tasks.html:45
+#: templates/tasks/tasks.html:61
 msgid "Delete"
 msgstr "Удалить"
 
@@ -209,11 +228,6 @@ msgstr "Менеджер задач"
 #: templates/statuses/statuses.html:17
 msgid "Statuses"
 msgstr "Статусы"
-
-#: templates/base.html:29 templates/labels/labels.html:10
-#: templates/labels/labels.html:17 templates/tasks/detail_task.html:45
-msgid "Labels"
-msgstr "Метки"
 
 #: templates/base.html:32 templates/tasks/tasks.html:10
 #: templates/tasks/tasks.html:17
@@ -287,6 +301,10 @@ msgstr "Удаление задачи"
 msgid "Viewing a task"
 msgstr "Просмотр задачи"
 
+#: templates/tasks/tasks.html:30
+msgid "Show"
+msgstr "Показать"
+
 #: templates/tasks/update_task.html:10 templates/tasks/update_task.html:17
 msgid "Editing a task"
 msgstr "Изменение задачи"
@@ -294,3 +312,9 @@ msgstr "Изменение задачи"
 #: utils.py:12
 msgid "You are not logged in! Please log in."
 msgstr "Вы не авторизованы! Пожалуйста, выполните вход."
+
+#~ msgid "It is not possible to delete the label because it is being used"
+#~ msgstr "Невозможно удалить метку, потому что она используется"
+
+#~ msgid "It is not possible to delete the status because it is being used"
+#~ msgstr "Невозможно удалить статус, потому что он используется"

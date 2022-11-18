@@ -99,6 +99,11 @@ class UserDeleteView(
             )
         except ProtectedError:
             messages.add_message(
-                request, messages.ERROR, _("It is not possible to delete the user because he is being used")
+                request,
+                messages.ERROR,
+                _(
+                    """It is not possible to delete the
+                    user because he is being used"""
+                ),
             )
             return redirect("users")

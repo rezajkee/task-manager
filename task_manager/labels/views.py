@@ -70,6 +70,11 @@ class LabelDeleteView(
             )
         except ProtectedError:
             messages.add_message(
-                request, messages.ERROR, _("It is not possible to delete the label because it is being used")
+                request,
+                messages.ERROR,
+                _(
+                    """It is not possible to delete the
+                    label because it is being used"""
+                ),
             )
             return redirect("labels")
