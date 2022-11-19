@@ -70,3 +70,7 @@ compilemessages:
 .PHONY: test
 test:
 	poetry run pytest
+
+.PHONY: test-coverage
+test-coverage: # запись покрытия для CodeClimate
+	poetry run pytest --cov=task_manager --cov-report xml

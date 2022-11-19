@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 
+import os
 from pathlib import Path
 
 import dj_database_url
@@ -29,12 +30,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = (
-    "django-insecure-zl!tb_1gfsngt#k_@et0sry!1il556-m1oxrlpx8k9!rx-d^wg"
-)
+SECRET_KEY = os.getenv("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.getenv("DEBUG")
 
 ALLOWED_HOSTS = [
     "127.0.0.1",
@@ -72,6 +71,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "task_manager.rollbar_middleware.CustomRollbarNotifierMiddleware",
 ]
 
 ROOT_URLCONF = "task_manager.urls"
@@ -153,7 +153,7 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # Add Rails.app to csrf trusted urls
 
-CSRF_TRUSTED_ORIGINS = ["https://web-production-b525.up.railway.app"]
+CSRF_TRUSTED_ORIGINS = ["https://*.railway.app"]
 
 # Login settings
 
@@ -166,4 +166,14 @@ LOGOUT_URL = reverse_lazy("logout")
 
 MESSAGE_TAGS = {
     constants.ERROR: "danger",
+}
+
+
+# Rollbar settings
+
+ROLLBAR = {
+    "access_token": os.getenv("ROLLBAR_ACCESS_TOKEN"),
+    "environment": "development" if DEBUG else "production",
+    "code_version": "1.0",
+    "root": BASE_DIR,
 }
