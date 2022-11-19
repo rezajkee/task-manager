@@ -1,0 +1,23 @@
+name: Tests
+
+on:
+  - push
+  - pull_request
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+      - name: Install dependencies
+        run: |
+          pip install poetry
+          poetry install
+      - name: Run tests
+        env:
+          SECRET_KEY: ${{ secrets.SECRET_KEY }}
+          DEBUG: "True"
+          DATABASE_URL: sqlite:///task_manager.sqlite3
+        run: |
+          make test
