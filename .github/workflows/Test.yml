@@ -14,6 +14,13 @@ jobs:
         run: |
           pip install poetry
           poetry install
+      - name: Migrate to DB
+        env:
+          SECRET_KEY: ${{ secrets.SECRET_KEY }}
+          DEBUG: ${{ secrets.DEBUG }}
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+        run: |
+          make migrate
       - name: Run tests
         run: |
           make test
