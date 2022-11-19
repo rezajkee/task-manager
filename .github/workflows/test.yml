@@ -19,5 +19,4 @@ jobs:
           SECRET_KEY: ${{ secrets.SECRET_KEY }}
           DEBUG: "True"
           DATABASE_URL: sqlite:///task_manager.sqlite3
-        run: |
-          make test
+        run: make test
