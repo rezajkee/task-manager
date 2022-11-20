@@ -202,22 +202,16 @@ LOGGING = {
             "filename": BASE_DIR / "debug.log",
             "backupCount": 10,  # keep at most 10 log files
             "maxBytes": 5242880,  # 5*1024*1024 bytes (5MB)
-        },
-        "rollbar": {
-            "filters": ["require_debug_false"],
-            "access_token": "POST_SERVER_ITEM_ACCESS_TOKEN",
-            "environment": "production",
-            "class": "rollbar.logger.RollbarHandler",
-        },
+        }
     },
     "loggers": {
         "django.request": {
             "level": "DEBUG",
-            "handlers": ["console", "file", "rollbar"],
+            "handlers": ["console", "file"],
         },
         "django.template": {
             "level": "DEBUG",
-            "handlers": ["console", "file", "rollbar"],
+            "handlers": ["console", "file"],
         },
     },
 }
