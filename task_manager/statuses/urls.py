@@ -15,4 +15,5 @@ urlpatterns = [
         views.StatusDeleteView.as_view(),
         name="delete_status",
     ),
+    path("error/", views.index),
 ]
