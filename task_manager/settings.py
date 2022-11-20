@@ -56,7 +56,6 @@ INSTALLED_APPS = [
     "django_filters",
     "bootstrap4",
     "task_manager",
-    "task_manager.pages",
     "task_manager.accounts",
     "task_manager.statuses",
     "task_manager.tasks",
@@ -168,7 +167,6 @@ MESSAGE_TAGS = {
     constants.ERROR: "danger",
 }
 
-
 # Rollbar settings
 
 ROLLBAR = {
@@ -176,4 +174,32 @@ ROLLBAR = {
     "environment": "development" if DEBUG else "production",
     "code_version": "1.0",
     "root": BASE_DIR,
+}
+
+# Django logger settings
+
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    "formatters": {
+        "console": {"format": "%(name)-12s %(levelname)-8s %(message)s"},
+        "file": {
+            "format": "%(asctime)s %(name)-12s %(levelname)-8s %(message)s"
+        },
+    },
+    "handlers": {
+        "console": {"class": "logging.StreamHandler", "formatter": "console"},
+        "file": {
+            "level": "DEBUG",
+            "class": "logging.handlers.RotatingFileHandler",
+            "formatter": "file",
+            "filename": BASE_DIR / "debug.log",
+            "backupCount": 10,  # keep at most 10 log files
+            "maxBytes": 5242880,  # 5*1024*1024 bytes (5MB)
+        },
+    },
+    "loggers": {
+        "django.request": {"level": "DEBUG", "handlers": ["console", "file"]},
+        "django.template": {"level": "DEBUG", "handlers": ["console", "file"]},
+    },
 }

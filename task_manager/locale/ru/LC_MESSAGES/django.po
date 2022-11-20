@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-18 16:41+0500\n"
+"POT-Creation-Date: 2022-11-20 16:48+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -89,7 +89,7 @@ msgid ""
 "                    label because it is being used"
 msgstr "Невозможно удалить метку, потому что она используется"
 
-#: settings.py:133
+#: settings.py:132
 msgid "Russian"
 msgstr "Русский"
 
@@ -174,6 +174,15 @@ msgstr "Вы уверены, что хотите удалить"
 msgid "Yes, delete"
 msgstr "Да, удалить"
 
+#: templates/accounts/login.html:10 templates/accounts/login.html:17
+#: templates/base.html:47
+msgid "Login"
+msgstr "Вход"
+
+#: templates/accounts/login.html:24
+msgid "Enter"
+msgstr "Войти"
+
 #: templates/accounts/register.html:10 templates/accounts/register.html:17
 #: templates/base.html:50
 msgid "Registration"
@@ -220,7 +229,7 @@ msgstr "Полное имя"
 msgid "Delete"
 msgstr "Удалить"
 
-#: templates/base.html:6 templates/base.html:15
+#: templates/base.html:6 templates/base.html:15 templates/home.html:19
 msgid "Task manager"
 msgstr "Менеджер задач"
 
@@ -238,10 +247,19 @@ msgstr "Задачи"
 msgid "Logout"
 msgstr "Выход"
 
-#: templates/base.html:47 templates/pages/login.html:10
-#: templates/pages/login.html:17
-msgid "Login"
-msgstr "Вход"
+#: templates/home.html:10
+msgid "Main page"
+msgstr "Главная"
+
+#: templates/home.html:20
+msgid ""
+"A web application that allows you to set tasks, change its statuses and "
+"assign executors. Registration and authentication are required to work with "
+"the system."
+msgstr ""
+"Веб-приложение, которое позволяет ставить задачи, менять их статусы и "
+"назначать исполнителей. Для работы с системой требуется регистрация и "
+"аутентификация."
 
 #: templates/labels/create_label.html:10 templates/labels/create_label.html:17
 #: templates/labels/labels.html:19
@@ -260,18 +278,6 @@ msgstr "Удаление метки"
 #: templates/labels/update_label.html:10 templates/labels/update_label.html:17
 msgid "Editing a label"
 msgstr "Изменение метки"
-
-#: templates/pages/home.html:10
-msgid "Main page"
-msgstr "Главная"
-
-#: templates/pages/home.html:19
-msgid "Example"
-msgstr "Пример"
-
-#: templates/pages/login.html:24
-msgid "Enter"
-msgstr "Войти"
 
 #: templates/statuses/create_status.html:10
 #: templates/statuses/create_status.html:17 templates/statuses/statuses.html:19
@@ -312,9 +318,3 @@ msgstr "Изменение задачи"
 #: utils.py:12
 msgid "You are not logged in! Please log in."
 msgstr "Вы не авторизованы! Пожалуйста, выполните вход."
-
-#~ msgid "It is not possible to delete the label because it is being used"
-#~ msgstr "Невозможно удалить метку, потому что она используется"
-
-#~ msgid "It is not possible to delete the status because it is being used"
-#~ msgstr "Невозможно удалить статус, потому что он используется"

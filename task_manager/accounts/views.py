@@ -22,7 +22,7 @@ class AccountsUserPassesTestMixin(CustomUserPassesTestMixin):
 class CustomLoginView(SuccessMessageMixin, LoginView):
     """Change template path, add success message after authentication."""
 
-    template_name = "pages/login.html"
+    template_name = "accounts/login.html"
     success_message = _("You are logged in")
 
 

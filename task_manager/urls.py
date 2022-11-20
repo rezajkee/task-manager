@@ -15,10 +15,17 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
+from django.views.generic.base import TemplateView
+
+from .accounts import views as acc_views
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("", include("task_manager.pages.urls")),
+    path(
+        "", TemplateView.as_view(template_name="home.html"), name="home"
+    ),
+    path("login/", acc_views.CustomLoginView.as_view(), name="login"),
+    path("logout/", acc_views.CustomLogoutView.as_view(), name="logout"),
     path("users/", include("task_manager.accounts.urls")),
     path("statuses/", include("task_manager.statuses.urls")),
     path("tasks/", include("task_manager.tasks.urls")),
