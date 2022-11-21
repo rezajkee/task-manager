@@ -20,6 +20,10 @@ collectstatic:
 shell:
 	@$(MANAGE) shell_plus
 
+.PHONY: install
+install:
+	poetry install
+
 .PHONY: flake8
 flake8:
 	poetry run flake8 task_manager
