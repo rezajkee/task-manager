@@ -8,7 +8,7 @@
 
 #### The fourth study project on Hexlet
 
-    A web application that allows you to set tasks, change its statuses and 
+A web application that allows you to set tasks, change its statuses and 
 assign executors. Registration and authentication are required to work with 
 the system.
 
@@ -20,12 +20,11 @@ https://task-manager-as.up.railway.app/
 
 ##### Clone repository:
 ```
-$ git clone https://github.com/rezajkee/python-project-52.git
+git clone https://github.com/rezajkee/python-project-52.git
 cd python-project-52
 ```
 
-##### Create .env file in root directory
-##### It should contain:
+##### Create .env file in root directory. It should contain:
 ```
 SECRET_KEY="django-insecure-******"  # 50 characters instead of asterisks
 DATABASE_URL=sqlite:///path/to/your/root/db.sqlite3
