@@ -27,9 +27,9 @@ certifi==2022.9.24 ; python_version >= "3.8" and python_version < "4" \
 charset-normalizer==2.1.1 ; python_version >= "3.8" and python_version < "4" \
     --hash=sha256:5a3d016c7c547f69d6f81fb0db9449ce888b418b5b9952cc5e6e66843e9dd845 \
     --hash=sha256:83e9a75d1911279afd89352c68b45348559d1fc0506b054b346651b5e7fee29f
-dj-database-url==1.0.0 ; python_version >= "3.8" and python_version < "4.0" \
-    --hash=sha256:ccf3e8718f75ddd147a1e212fca88eecdaa721759ee48e38b485481c77bca3dc \
-    --hash=sha256:cd354a3b7a9136d78d64c17b2aec369e2ae5616fbca6bfbe435ef15bb372ce39
+dj-database-url==0.5.0 ; python_version >= "3.8" and python_version < "4.0" \
+    --hash=sha256:4aeaeb1f573c74835b0686a2b46b85990571159ffc21aa57ecd4d1e1cb334163 \
+    --hash=sha256:851785365761ebe4994a921b433062309eb882fedd318e1b0fcecc607ed02da9
 django-bootstrap4==22.2 ; python_version >= "3.8" and python_version < "4.0" \
     --hash=sha256:57bcbce53530ffd57a1c8bda74c8f3b56c859e085fb1f52a0e3e3a4f982f0960 \
     --hash=sha256:ad00ff90e6bd002155516b32047c40df15f533fac49da66d8882995adcb13552
