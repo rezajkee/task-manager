@@ -11,10 +11,12 @@
 A web application that allows you to set tasks, change its statuses and 
 assign executors. Registration and authentication are required to work with 
 the system.
+
 -----------
 #### App on Railway.app:
 
 https://task-manager-as.up.railway.app/
+
 -----------
 #### Installation via poetry:
 
