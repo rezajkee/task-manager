@@ -8,15 +8,8 @@ from django.urls import reverse_lazy
 from django.utils.translation import gettext_lazy as _
 from django.views import generic
 
-from ..utils import CustomLoginRequiredMixin, CustomUserPassesTestMixin
+from ..utils import AccountsUserPassesTestMixin, CustomLoginRequiredMixin
 from .forms import UserRegistrationForm
-
-
-class AccountsUserPassesTestMixin(CustomUserPassesTestMixin):
-    """Override mixin's attributes for a accounts views."""
-
-    permission_denied_message = _("You have no rights to change another user.")
-    redirect_url = "users"
 
 
 class CustomLoginView(SuccessMessageMixin, LoginView):

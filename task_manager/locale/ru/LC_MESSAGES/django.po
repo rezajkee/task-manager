@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-20 16:48+0500\n"
+"POT-Creation-Date: 2022-11-23 16:39+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -28,31 +28,27 @@ msgstr "Имя"
 msgid "Last name"
 msgstr "Фамилия"
 
-#: accounts/views.py:18
-msgid "You have no rights to change another user."
-msgstr "У вас нет прав для изменения другого пользователя."
-
-#: accounts/views.py:26
+#: accounts/views.py:19
 msgid "You are logged in"
 msgstr "Вы залогинены"
 
-#: accounts/views.py:33
+#: accounts/views.py:26
 msgid "You are logged out"
 msgstr "Вы разлогинены"
 
-#: accounts/views.py:44
+#: accounts/views.py:37
 msgid "The user has been registered successfully"
 msgstr "Пользователь успешно зарегистрирован"
 
-#: accounts/views.py:70
+#: accounts/views.py:63
 msgid "The user has been edited successfully"
 msgstr "Пользователь успешно изменён"
 
-#: accounts/views.py:90
+#: accounts/views.py:83
 msgid "The user has been deleted successfully"
 msgstr "Пользователь успешно удалён"
 
-#: accounts/views.py:105
+#: accounts/views.py:98
 msgid ""
 "It is not possible to delete the\n"
 "                    user because he is being used"
@@ -89,7 +85,7 @@ msgid ""
 "                    label because it is being used"
 msgstr "Невозможно удалить метку, потому что она используется"
 
-#: settings.py:132
+#: settings.py:133
 msgid "Russian"
 msgstr "Русский"
 
@@ -143,19 +139,15 @@ msgstr "Исполнитель"
 msgid "Labels"
 msgstr "Метки"
 
-#: tasks/views.py:16
-msgid "The task can only be deleted by its author"
-msgstr "Задачу может удалить только её автор"
-
-#: tasks/views.py:30
+#: tasks/views.py:23
 msgid "The task was created successfully"
 msgstr "Задача успешно создана"
 
-#: tasks/views.py:62
+#: tasks/views.py:55
 msgid "The task was edited successfully"
 msgstr "Задача успешно изменена"
 
-#: tasks/views.py:77
+#: tasks/views.py:70
 msgid "The task was deleted successfully"
 msgstr "Задача успешно удалена"
 
@@ -318,3 +310,11 @@ msgstr "Изменение задачи"
 #: utils.py:12
 msgid "You are not logged in! Please log in."
 msgstr "Вы не авторизованы! Пожалуйста, выполните вход."
+
+#: utils.py:54
+msgid "You have no rights to change another user."
+msgstr "У вас нет прав для изменения другого пользователя."
+
+#: utils.py:61
+msgid "The task can only be deleted by its author"
+msgstr "Задачу может удалить только её автор"

@@ -46,3 +46,17 @@ class CustomUserPassesTestMixin(UserPassesTestMixin):
         return super(CustomUserPassesTestMixin, self).dispatch(
             request, *args, **kwargs
         )
+
+
+class AccountsUserPassesTestMixin(CustomUserPassesTestMixin):
+    """Override mixin's attributes for a accounts views."""
+
+    permission_denied_message = _("You have no rights to change another user.")
+    redirect_url = "users"
+
+
+class TasksUserPassesTestMixin(CustomUserPassesTestMixin):
+    """Override mixin attributes for a tasks views."""
+
+    permission_denied_message = _("The task can only be deleted by its author")
+    redirect_url = "tasks"

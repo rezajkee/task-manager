@@ -4,17 +4,10 @@ from django.utils.translation import gettext_lazy as _
 from django.views import generic
 from django_filters.views import FilterView
 
-from ..utils import CustomLoginRequiredMixin, CustomUserPassesTestMixin
+from ..utils import CustomLoginRequiredMixin, TasksUserPassesTestMixin
 from .filters import TaskFilter
 from .forms import TaskCreationForm
 from .models import Task
-
-
-class TasksUserPassesTestMixin(CustomUserPassesTestMixin):
-    """Override mixin attributes for a tasks views."""
-
-    permission_denied_message = _("The task can only be deleted by its author")
-    redirect_url = "tasks"
 
 
 class TaskCreateView(
