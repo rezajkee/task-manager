@@ -47,3 +47,15 @@ make migrate
 ```
 make runserver
 ```
+
+#### Running in a Docker container:
+
+##### Run from the project root:
+```
+docker compose up
+```
+
+##### Run migrations:
+```
+docker compose exec web python /code/manage.py migrate
+```
